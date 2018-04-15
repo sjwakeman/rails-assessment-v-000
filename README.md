@@ -112,7 +112,7 @@ Project reviews are focused on preparing you for technical interviews. Treat pro
 TRAINER APPLICATION
 ===================
 CONTROLLERS:
-Trainers_controller.rb
+trainers_controller.rb
 new
 create
 edit
@@ -120,7 +120,7 @@ update
 show
 destroy
 
-Training_sessions_controller.rb
+training_sessions_controller.rb
 new
 create
 edit
@@ -129,7 +129,7 @@ show
 index
 destroy
 
-Clients_controller.rb
+users_controller.rb
 new
 create
 edit
@@ -138,7 +138,7 @@ show
 destroy
 
 MODELS:
-Trainer.rb
+trainer.rb
 has_many :training_sessions
 has_many :clients through: :training_sessions
 
@@ -147,7 +147,7 @@ has_many :clients through: :training_sessions
 :email
 :password (password_digest)
 
-Training_Session.rb
+training_Session.rb
 belongs_to :trainer
 belongs_to :clients
 
@@ -156,7 +156,7 @@ belongs_to :clients
 :end_time
 :location
 
-User.rb
+user.rb
 has_many :training_sessions
 has_many :trainers through: :training_sessions
 
