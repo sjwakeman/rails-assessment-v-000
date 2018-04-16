@@ -28,6 +28,11 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'devise'
 
+gem 'omniauth'
+
+gem 'omniauth-facebook'
+
+gem 'launchy'
 # Use unicorn as the app server
 # gem 'unicorn'
 

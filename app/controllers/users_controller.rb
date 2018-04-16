@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
-  def home
+
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :email, :password, :admin)
   end
 end
