@@ -5,13 +5,11 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, :omniauth_providers => [:facebook]
   #extend Devise::Models
-  has_secure_password
-
+  #has_secure_password
+  #encrypted_password
 
   has_many :training_sessions
   belongs_to :training_sessions
-
-
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
