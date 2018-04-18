@@ -10,6 +10,10 @@ class TrainingSessionsController < ApplicationController
   #Object.update(...)
   #redirect to another route
 
+  def index
+    @training_sessions = TrainingSession.all
+  end
+  
   private
 
   def training_session_params

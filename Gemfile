@@ -35,6 +35,9 @@ gem 'omniauth-facebook'
 gem 'launchy'
 
 gem 'dotenv-rails'
+
+gem "simple_calendar", "~> 2.0"
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
