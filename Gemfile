@@ -33,6 +33,8 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 
 gem 'launchy'
+
+gem 'dotenv-rails'
 # Use unicorn as the app server
 # gem 'unicorn'
 

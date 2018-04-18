@@ -1,6 +1,16 @@
 <h1>Welcome to your Trainer's App</h1>
 
-<%= link_to "Sign Up", new_user_path %>
-<%= link_to "Sign In", signin_path %>
+<% if session[:user_id] %>
+ <h1><%= @user.name %></h1>
+ <h2>Email: <%= @user.email %></h2>
+ <h2>Facebook UID: <%= @user.uid %></h2>
+ <img src="<%= @user.image %>">
+<% else %>
+ <%= link_to('Log in with Facebook!', '/auth/facebook') %>
+<% end %>
 
-<%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
+
+<!--<%= link_to "Registration", new_user_registration_path %>-->
+<!--<%= link_to "Sign In", user_registration_path %>-->
+
+<!--<%= link_to('Log in with Facebook!', '/auth/facebook') %>-->
