@@ -10,10 +10,17 @@ class TrainingSessionsController < ApplicationController
   #Object.update(...)
   #redirect to another route
 
+  def update
+       @training_session = TrainingSession.find(params[:id])
+       authorize @training_session
+   # perform an update
+     end
+
+
   def index
     @training_sessions = TrainingSession.all
   end
-  
+
   private
 
   def training_session_params
