@@ -1,7 +1,7 @@
 <%= month_calendar events: @trainingsessions do |date, trainingsession| %>
   <%= date %>
 
-  <% meetings.each do |trainingsession| %>
+  <% trainingsessions.each do |trainingsession| %>
     <div>
       <%= trainingsession.name %>
     </div>
