@@ -10,6 +10,8 @@ Devise.setup do |config|
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '4bbc4e01fcaa290dcf11aaa4ee3f175004ae6750bbf78547e1726c455019e4c400bb8337da177d50778061d518b5178b2e07b38be4a4c0c345c660e6a0c5228a'
 
+  config.scoped_views = true #added https://github.com/plataformatec/devise/blob/master/README.md#controller-filters-and-helpers
+
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
@@ -259,7 +261,7 @@ Devise.setup do |config|
   # config.navigational_formats = ['*/*', :html]
 
   # The default HTTP method used to sign out a resource. Default is :delete.
-  config.sign_out_via = :delete
+  #config.sign_out_via = :delete
 
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting

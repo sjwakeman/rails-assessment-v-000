@@ -38,6 +38,7 @@ gem 'dotenv-rails'
 
 gem "simple_calendar", "~> 2.0"
 
+gem 'pundit'
 # Use unicorn as the app server
 # gem 'unicorn'
 

@@ -14,6 +14,7 @@ class TrainersController < ApplicationController
   end
 
   def index
+    
     @trainers = Trainer.all
   end
 
