@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   resources :training_sessions
   get '/auth/facebook/callback' => 'sessions#create'
 
+
   root 'welcome#home'
 end
