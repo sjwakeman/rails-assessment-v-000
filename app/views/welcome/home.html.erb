@@ -3,6 +3,8 @@
 <% if user_signed_in? %>
  <h1>Name: <%= @user.name %></h1>
  <h2>Email: <%= @user.email %></h2>
+ <% link_to("Trainers", trainers_path(@trainers)) %>
+ <!--<% link_to("Trainers", trainers_path(@trainers)) %>-->
  <h2>Facebook UID: <%= @user.uid %></h2>
  <img src="<%= @user.image %>">
 <% else %>

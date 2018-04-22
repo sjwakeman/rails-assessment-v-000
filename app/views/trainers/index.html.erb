@@ -4,6 +4,8 @@
     <div "New_Trainer_link"><%= link_to "New Trainer", new_trainer_path %></div>
 
   <% else %>
-    <div "trainer_link"><%= link_to "Show #{trainer.name}", trainer_path(trainer) %></div> <!-- use |trainer|-->
+  <div "trainer_link"><%= link_to "Show #{trainer.name}", trainers_path(trainers) %></div>
+    <!--<div "trainer_link"><%= link_to "Show #{trainer.name}", trainer_path(trainer) %></div>--> <!-- use |trainer|-->
   <%end %>
 <% end %>
+= link_to @post.user.full_name, user_path(@post.user_id)

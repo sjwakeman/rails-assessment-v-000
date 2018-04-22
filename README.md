@@ -163,3 +163,30 @@ has_many :trainers through: :training_sessions
 :name
 :email
 :password (password_digest)
+
+================================================================================
+I Sign up page
+  Devise
+II Login page
+   Devise
+III Welcome page
+
+IV Trainers Index page
+   A. List of All Trainers links
+      1. Trainer Name
+      2. Trainer Specialty
+V Trainer Show page
+    A. Trainer Name
+    B. Trainer Specialty
+    C. Trainer training_sessions
+      1. Date
+      2. Start_Time
+      3. End_Time
+    D. Trainer Calendar
+
+VI Trainer_training_session page
+   A. Date
+   B. Start_Time
+   C. End_Time
+
+VII Trainer Calendar page
