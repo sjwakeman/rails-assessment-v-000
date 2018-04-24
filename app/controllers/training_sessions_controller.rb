@@ -11,11 +11,13 @@ class TrainingSessionsController < ApplicationController
   #redirect to another route
 
   def update
-       @training_session = TrainingSession.find(params[:id])
-       authorize @training_session
-   # perform an update
-     end
-
+    @training_session = TrainingSession.find(params[:id])
+      if @training_session.update_attributes(permitted_attributes(@training_session))
+        redirect_to @training_session
+      else
+        render :edit
+      end
+  end
 
   def index
     @training_sessions = TrainingSession.all
@@ -24,7 +26,7 @@ class TrainingSessionsController < ApplicationController
   private
 
   def training_session_params
-    params.require(:training_session).permit(:date, :start_time, :end_time, :location)
+    params.require(:training_session).permit(:date, :start_time, :end_time, :location, :training_session_schedule)
   end
 
 end

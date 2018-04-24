@@ -1,0 +1,3 @@
+<% if policy(@training_session).update? %>
+  <%= link_to "Edit training session", edit_training_session_path(@training_session) %>
+<% end %>

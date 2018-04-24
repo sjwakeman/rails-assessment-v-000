@@ -15,8 +15,6 @@ ActiveRecord::Schema.define(version: 20180417225634) do
 
   create_table "trainers", force: :cascade do |t|
     t.string   "name"
-    t.string   "first_name"
-    t.string   "last_name"
     t.string   "specialty"
     t.string   "email"
     t.string   "bio"

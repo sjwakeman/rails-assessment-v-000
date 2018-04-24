@@ -17,4 +17,7 @@ class TrainingSession < ActiveRecord::Base
 
   def training_session
   end
+
+  def training_session_schedule
+  end
 end

@@ -1,4 +1,4 @@
-class trainerPolicy < ApplicationPolicy
+class TrainerPolicy < ApplicationPolicy
 
   def initialize(user, training_session)
     super(user, training_session)
