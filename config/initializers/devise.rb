@@ -10,8 +10,6 @@ Devise.setup do |config|
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '4bbc4e01fcaa290dcf11aaa4ee3f175004ae6750bbf78547e1726c455019e4c400bb8337da177d50778061d518b5178b2e07b38be4a4c0c345c660e6a0c5228a'
 
-  config.scoped_views = true #added https://github.com/plataformatec/devise/blob/master/README.md#controller-filters-and-helpers
-
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
@@ -239,7 +237,9 @@ Devise.setup do |config|
   # Turn scoped views on. Before rendering "sessions/new", it will first check for
   # "users/sessions/new". It's turned off by default because it's slower if you
   # are using only default views.
-  # config.scoped_views = false
+  config.scoped_views = true
+  #added https://github.com/plataformatec/devise/blob/master/README.md#controller-filters-and-helpers
+  #https://stackoverflow.com/questions/33674402/devise-not-rendering-correct-views
 
   # Configure the default scope given to Warden. By default it's the first
   # devise role declared in your routes (usually :user).

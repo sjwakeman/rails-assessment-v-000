@@ -14,7 +14,6 @@ class TrainersController < ApplicationController
   end
 
   def index
-    binding.pry
     @trainers = Trainer.all
   end
 

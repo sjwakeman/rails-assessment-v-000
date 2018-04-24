@@ -15,8 +15,11 @@ ActiveRecord::Schema.define(version: 20180417225634) do
 
   create_table "trainers", force: :cascade do |t|
     t.string   "name"
+    t.string   "first_name"
+    t.string   "last_name"
     t.string   "specialty"
     t.string   "email"
+    t.string   "bio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -32,6 +35,8 @@ ActiveRecord::Schema.define(version: 20180417225634) do
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
+    t.string   "first_name"
+    t.string   "last_name"
     t.string   "image"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
