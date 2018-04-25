@@ -1,12 +1,10 @@
 <h1>Welcome to your Trainer's App</h1>
 
-<% if user_signed_in? %>
- <h1>Name: <%= @user.name %></h1>
+<% if session[:user_id] %>
+ <h1><%= @user.name %></h1>
  <h2>Email: <%= @user.email %></h2>
- <%= link_to("Trainers", trainers_path(@trainers)) %>
-
  <h2>Facebook UID: <%= @user.uid %></h2>
  <img src="<%= @user.image %>">
 <% else %>
- <%= link_to('Log in with Facebook!', '/auth/facebook') %>
+ <a href='/auth/facebook'>Login with Facebook</a>
 <% end %>

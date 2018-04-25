@@ -1,5 +1,8 @@
 class TrainingSessionsController < ApplicationController
 
+  def create
+
+
   def new
     @training_session = TrainingSession.create(user_id:params[:user_id], trainer_id:params[:trainer_id])
     message = @training_session.book_training_session

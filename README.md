@@ -166,9 +166,9 @@ has_many :trainers through: :training_sessions
 
 ================================================================================
 I Sign up page
-  Devise
+
 II Login page
-   Devise
+e
 III Welcome page
 
 IV Trainers Index page
