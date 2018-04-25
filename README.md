@@ -33,7 +33,7 @@ In this lesson you're going to build a complete Ruby on Rails application that m
 - A Group Task Manager - An application that allowed the creation of task lists with individual tasks that can be assigned to a user would flex the majority of the requirements of this assessment. You would be able to create a list of tasks, add tasks to that list, and assign those tasks to a user.
 
 lists
-users
+clients
 tasks
   user_id
   list_id
@@ -129,7 +129,7 @@ show
 index
 destroy
 
-users_controller.rb
+clients_controller.rb
 new
 create
 edit
