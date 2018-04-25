@@ -2,12 +2,6 @@
 link_to trainer.name
 <% @trainers.each do |trainer| %>
   <div "trainer>"<%= trainer.name %></div>
-  <% if current_user.admin? %>
-    <div "trainer_link"><%= link_to "Show #{trainer.name}", trainers_path(trainers) %></div>
-    <div "New_Trainer_link"><%= link_to "New Trainer", new_trainer_path %></div>
-
-  <% else %>
   <div "trainer_link"><%= link_to "Show #{trainer.name}", trainers_path(trainers) %></div>
-    <!--<div "trainer_link"><%= link_to "Show #{trainer.name}", trainer_path(trainer) %></div>--> <!-- use |trainer|-->
-  <%end %>
+<!--<div "trainer_link"><%= link_to "Show #{trainer.name}", trainer_path(trainer) %></div>--> <!-- use |trainer|-->
 <% end %>
