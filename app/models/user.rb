@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+
   def self.find_or_create_by_omniauth(auth_hash)
   #User is login via OAuth
   #User is 100% trusted coming from Facebook
@@ -8,5 +9,9 @@ class User < ActiveRecord::Base
       user.password = SecureRandom.hex
       #Seen this User before, log User in
     end
+  end
+
+  def user_params
+    params.require(:user).permit(:name, :email, :encrypted_password, :uid)
   end
 end

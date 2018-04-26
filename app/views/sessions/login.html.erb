@@ -1,0 +1,11 @@
+<h2>Login Page</h2>
+<%= form_for @user, url: login_path(@user) do |f| %>
+  <p><%= f.label :name %>:</p>
+  <p><%= f.text_field :name %></p>
+  <p><%= f.label :password %>:</p>
+  <p><%= f.text_field :password_digest %></p>
+  <!--hidden_field(:admin, :admin_signin)-->
+  <p><%= label_tag(:admin, "Check box if you are a theme park owner") %>
+  <%= check_box_tag(:admin) %></p>
+  <p><%= f.submit 'Log In'%></p>
+<% end %>

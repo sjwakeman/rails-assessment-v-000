@@ -1,17 +1,18 @@
 Rails.application.routes.draw do
 
-  get '/clients/sign_out' => 'sessions#destroy'
-  get '/auth/facebook/callback' => 'sessions#create'
+
+  #get '/auth/facebook/callback' => 'sessions#create'
 
   resources :trainers
   resources :clients
   resources :training_sessions
   resources :users
-  
-  #get '/login' => 'sessions#new'
-  #post '/login' => 'sessions#create'
-  #post '/logout' => 'sessions#destroy'
-  #resources :users, only: [:new, :create]
+
+  get '/signup', to: 'sessions#signup'
+  get '/login', to: 'sessions#login', as: 'login'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
+
 
   root 'welcome#home'
 end

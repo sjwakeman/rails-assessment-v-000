@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20180417225634) do
 
   create_table "clients", force: :cascade do |t|
     t.string "name"
-    t.string "image"
+    t.string "email"
     t.string "provider"
     t.string "uid"
   end
@@ -37,6 +37,16 @@ ActiveRecord::Schema.define(version: 20180417225634) do
     t.boolean  "booked_status"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "password_digest"
+    t.string   "password_confirmation"
+    t.string   "image"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
 end

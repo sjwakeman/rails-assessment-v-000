@@ -8,21 +8,14 @@ class Client < ActiveRecord::Base
 
   validates :name, presence: true
 
-  def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-    user.email = auth.info.email
-    user.password = Devise.friendly_token[0,20]
-    end
-  end
-
   #def name
     #"#{first_name} #{last_name}"
   #end
 
   private
 
-  def user_params
-    params.require(:user).permit(:name, :email, :encrypted_password, :uid)
+  def client_params
+    params.require(:client).permit(:name, :email)
   end
 
 end
