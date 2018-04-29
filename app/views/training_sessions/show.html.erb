@@ -1,0 +1,11 @@
+Training Session Show page
+Training Session date
+Training Session start_time
+Training Session end_time
+Training Session location
+<% @training_sessions.each do |training_session| %>
+  <div "training_session>"<%= training_session.date %></div>
+    <div "training_session_date_link"><%= link_to "Show #{training_session.date}", training_session_path(session) %></div>
+    <div "edit_trainer_link"><%= link_to "Edit #{training_session.date}", edit_training_session_path(session)%></div>
+    <div "new_trainer_link"><%= link_to "New Training Session", new_training_session_path %></div>
+<% end %>
