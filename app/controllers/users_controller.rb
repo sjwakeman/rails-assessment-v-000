@@ -1,25 +1,13 @@
 class UsersController < ApplicationController
   before_action :authenticate_user, only: [:show]
-  def home
-  end
 
-  def index
-    @users = User.all
+  def home
   end
 
   def new
     @user = User.new
   end
 
-  #def create
-    #@user = User.find_by(name: params[:user][:name]) #Specify [:user][:name])
-      #if @user && @user.authenticate(params[:user][:password])
-        #session[:user_id] = @user.id
-          #redirect_to user_path(@user) #Continue with @user
-      #else
-        #render 'login'
-      #end
-  #end
   def create
     @user = User.new(user_params)
     if @user.save
@@ -38,15 +26,15 @@ class UsersController < ApplicationController
     else
       @message = "" #If no message prevents Error
     end
-   #if !current_user.admin
-    if current_user != @user
-      redirect_to root_path
-    end
-   #end
+      if current_user != @user
+        redirect_to root_path
+      end
   end
 
   private
+
   def user_params
-    params.require(:user).permit(:name, :email, :encrypted_password, :uid)
+    params.require(:user).permit(:name, :email, :image, :uid)
   end
+  
 end

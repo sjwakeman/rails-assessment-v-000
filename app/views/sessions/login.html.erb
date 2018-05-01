@@ -1,5 +1,6 @@
 <h2>Login Page</h2>
-<%= form_for @user, url: login_path(@user) do |f| %>
+<!--<%= form_for @user, url: login_path(@user) do |f| %>-->
+<%= form_for user do |f| %>
   <p><%= f.label :name %>:</p>
   <p><%= f.text_field :name %></p>
   <p><%= f.label :password %>:</p>
@@ -9,3 +10,4 @@
   <%= check_box_tag(:admin) %></p>
   <p><%= f.submit 'Log In'%></p>
 <% end %>
+<!--<%= render partial: 'sessions/form',  locals: {user: @user} %>-->

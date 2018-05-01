@@ -1,11 +1,10 @@
 <%= form_for @user do |f| %>
-  <p><%= f.label :name %>:</p>
-  <p><%= f.text_field :name %></p>
-  <p><%= f.label :email %></p>
-  <p><%= f.text_field :email %></p>
-  <p><%= f.label :password %>: </p>
-  <p><%= f.text_field :password_digest %></p>
+  <%= f.label :name %>:<br />
+  <%= f.text_field :name %><br />
+  <%= f.label :email %><br />
+  <%= f.text_field :email %><br />
+  <%= f.label :password %>:<br />
+  <%= f.text_field :password_digest %><br />
 
-  <p><%= f.submit %></p>
+  <%= f.submit %><br />
 <% end %>
-  <a href='/users'>Back</a>

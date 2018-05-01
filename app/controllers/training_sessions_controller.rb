@@ -1,13 +1,16 @@
 class TrainingSessionsController < ApplicationController
 
-  def create
-
-
   def new
-    @training_session = TrainingSession.create(user_id:params[:user_id], trainer_id:params[:trainer_id])
+    @training_session = TrainingSession.create(trainer_id:params[:trainer_id], user_id:params[:user_id])
     message = @training_session.book_training_session
         redirect_to user_path(@training_session.user, :message => message )
   end
+
+
+  def create
+  end
+
+
   #def update
   #this isn't a route, this is just the method that updates
   #Object.update(...)
