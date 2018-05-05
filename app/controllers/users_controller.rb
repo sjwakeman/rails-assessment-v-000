@@ -19,6 +19,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def index
+    @users = User.all
+  end
+
   def show
     @user = User.find_by(id: params[:id])
     if params[:message]
@@ -36,5 +40,5 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :image, :uid)
   end
-  
+
 end

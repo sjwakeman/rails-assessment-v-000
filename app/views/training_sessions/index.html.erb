@@ -1,9 +1,8 @@
-<%= month_calendar events: @trainingsessions do |date, trainingsession| %>
-  <%= date %>
-
-  <% trainingsessions.each do |trainingsession| %>
+  <% @training_sessions.each do |trainingsession| %>
     <div>
-      <%= trainingsession.name %>
+      <%= trainingsession.date %>
+      <%= trainingsession.start_time %>
+      <%= trainingsession.end_time %>
+      <%= trainingsession.location %>
     </div>
   <% end %>
-<% end %>

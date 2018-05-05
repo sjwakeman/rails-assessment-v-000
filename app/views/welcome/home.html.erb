@@ -1,12 +1,12 @@
 <h1>Welcome to your Trainer's App</h1>
 
-<% @users.each do |user| %>
-  <% if session[:user_id] %>
-    <h1><%= user.name %></h1>
-    <h2>Email: <%= user.email %></h2>
-    <h2>Facebook UID: <%= user.uid %></h2>
-    <img src="<%= user.image %>">
-  <% else %>
-    <a href='/auth/facebook'>Login with Facebook</a>
-  <% end %>
+<% if session[:user_id] %>
+ <h1><%= @user.name %></h1>
+ <h2>Email: <%= @user.email %></h2>
+ <h2>Facebook UID: <%= @user.uid %></h2>
+ <img src="<%= @user.image %>">
+<% else %>
+ <a href='/auth/facebook'>Login with Facebook</a>
 <% end %>
+<li><%= link_to "Sign Up", new_user_path %></li>
+<li><%= link_to "Sign In", signin_path %></li>

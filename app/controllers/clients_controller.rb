@@ -2,17 +2,17 @@ class ClientsController < ApplicationController
   before_action :authenticate_client, only: [:show]
 
   def new
-    @user = User.new(user_params)
-    if @user.save
+    @client = Client.new(client_params)
+    if @client.save
 
   end
 
   def create
-    @user = User.new(user_params)
-    if @user.save
-      session[:user_id] = @user.id
+    @client = Client.new(client_params)
+    if @client.save
+      session[:client_id] = @client.id
       # UsersController create logs you in
-        redirect_to user_path(@user)
+        redirect_to client_path(@client)
     else
       render 'new'
     end
@@ -21,7 +21,7 @@ class ClientsController < ApplicationController
 
   private
 
-  def user_params
-    params.require(:user).permit(:name, :email, :password, :admin)
+  def client_params
+    params.require(:client).permit(:name, :email)
   end
 end

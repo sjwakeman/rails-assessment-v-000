@@ -2,7 +2,7 @@ class TrainingSession < ActiveRecord::Base
   belongs_to :trainer
   belongs_to :clients
 
-  validates :trainer_id, presence: true.
+  validates :trainer_id, presence: true
   validates :date, presence: true
   validates :start_time, presence: true
   validates :end_time, presence: true
@@ -17,7 +17,7 @@ class TrainingSession < ActiveRecord::Base
     self.my_related_model.end
   end
 
-  def training_session(@trainer)
+  def training_session(trainer)
     :date
     :start_time
     :end_time

@@ -1,5 +1,5 @@
 class CreateTrainingSessions < ActiveRecord::Migration
-  create_table :trainingsessions do |t|
+  create_table :training_sessions do |t|
     t.date :date
     t.time :start_time
     t.time :end_time
