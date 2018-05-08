@@ -1,11 +1,16 @@
 <%= form_for @user do |f| %>
-  <p><%= f.label :name %>:</p>
-  <p><%= f.text_field :name %></p>
-  <p><%= f.label :email %></p>
-  <p><%= f.text_field :email %></p>
-  <p><%= f.label :password %> </p>
-  <p><%= f.text_field :password %></p>
-
-  <p><%= f.submit %></p>
+  <div class=”field”>
+    <%= f.label :name %> :
+    <%= f.text_field :name %><br><br>
+  </div>
+  <div class=”field”>
+  <%= f.label :email %> :
+  <%= f.text_field :email %><br><br>
+  </div>
+  <div class=”field”>
+  <%= f.label :password %> :
+  <%= f.text_field :password %><br><br>
+  </div>
+  <%= f.submit %>
 <% end %>
   <a href='/users'>Back</a>

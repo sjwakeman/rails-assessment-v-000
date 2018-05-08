@@ -10,12 +10,16 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    #binding.pry
     if @user.save
       session[:user_id] = @user.id
       # UsersController create logs you in
         redirect_to user_path(@user)
+        # new server request happens, so the previous controller
+        #instance is destroyed and a new controller instance is created.
     else
       render 'new'
+      #When you render, you remain in the same controller instance
     end
   end
 
@@ -38,7 +42,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :image, :uid)
+    params.require(:user).permit(:name, :password, :email, :image, :uid)
   end
 
 end
