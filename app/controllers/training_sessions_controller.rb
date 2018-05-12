@@ -2,9 +2,18 @@ class TrainingSessionsController < ApplicationController
   before_action :set_training_session, only: [:show, :edit, :update]
 
   def index
-    @training_sessions = TrainingSession.all
+    if params[:user_id]
+      @user = User.find_by(id: params[:user_id])
+        if @user.nil?
+          redirect_to users_path, alert: "User not found"
+        else
+          @training_sessions = @user.training_sessions
+        end
+    else
+      @training_sessions = TrainingSession.all
+    end
   end
-
+  
   def new
     #@other_font = OtherFont.new
     #render :"other_fonts/new"
