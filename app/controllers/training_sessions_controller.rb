@@ -1,6 +1,10 @@
 class TrainingSessionsController < ApplicationController
   before_action :set_training_session, only: [:show, :edit, :update]
 
+  def index
+    @training_sessions = TrainingSession.all
+  end
+
   def new
     #@other_font = OtherFont.new
     #render :"other_fonts/new"
@@ -35,10 +39,6 @@ class TrainingSessionsController < ApplicationController
     end
   end
 
-  def index
-    @training_sessions = TrainingSession.all
-  end
-
   def show
     #Duplicates def set_training_sesison method
     #@training_session = TrainingSession.find_by([:id]) #expected: "/training_sessions/2" got: "/training_session"
@@ -52,7 +52,7 @@ class TrainingSessionsController < ApplicationController
   private
 
   def training_session_params
-    params.require(:training_session).permit(:date, :start_time, :end_time, :location, :training_session_schedule)
+    params.require(:training_session).permit(:date, :start_time, :end_time, :location, :booked_status)
   end
 
   def set_training_session

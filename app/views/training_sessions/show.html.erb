@@ -5,7 +5,19 @@ Training Session end_time
 Training Session location
 <% @training_sessions.each do |training_session| %>
   <div "training_session>"<%= training_session.date %></div>
-    <div "training_session_date_link"><%= link_to "Show #{training_session.date}", training_session_path(session) %></div>
-    <div "edit_trainer_link"><%= link_to "Edit #{training_session.date}", edit_training_session_path(session)%></div>
+    <div "training_session_date_link"><%= link_to "Show #{training_session.date}", training_session_path(training_session) %></div>
+    <div "edit_trainer_link"><%= link_to "Edit #{training_session.date}", edit_training_session_path(training_session)%></div>
     <div "new_trainer_link"><%= link_to "New Training Session", new_training_session_path %></div>
 <% end %>
+
+<%= form_tag({controller: "training_session", action: "new" }) do %>
+  <%= hidden_field_tag(:user_id, current_user.id) %>
+  <%= hidden_field_tag(:training_session_id, @training_session.id) %>
+    <div "trainer_link"><%= link_to "Show #{training_session.date}", training_session_path(training_session %></div>
+    <div "edit_trainer_link"><%= link_to "Edit #{training_session.date}", edit_training_session_path(training_session)%></div>
+    <div "new_trainer_link"><%= link_to "New Training Session", new_training_session_path %></div>
+  <% end %>
+  <%= submit_tag "Go on this ride" %>
+<% end %>
+<div "field">Tickets: <%= @attraction.tickets %></div>
+<div "field">Name: <%= @attraction.name %></div>

@@ -1,6 +1,6 @@
 class TrainingSession < ActiveRecord::Base
   belongs_to :trainer
-  belongs_to :clients
+  belongs_to :user
 
   validates :trainer_id, presence: true
   validates :date, presence: true
