@@ -2,12 +2,18 @@ class TrainingSession < ActiveRecord::Base
   belongs_to :trainer
   belongs_to :user
 
-  validates :trainer_id, presence: true
   validates :date, :start_time, :end_time, presence: true
 
   def self.request(date, start_time, end_time, location, user, client)
     @training_session = TrainingSession.create(date, start_time, end_time, location, user: user_id, client: client_id, booked_status: 1)
   end
+
+  def client_attributes=(client)
+    self.client = Client.find_or_create_by(name: artist.name)
+    self.client.update(client)
+  end
+
+
 
   #def start_time
 #Where 'start' is a attribute of type 'Date' accessible through Training Session's relationship
@@ -31,4 +37,6 @@ class TrainingSession < ActiveRecord::Base
 
   #def booked_status
   #end
+
+
 end

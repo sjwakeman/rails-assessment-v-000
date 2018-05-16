@@ -1,23 +1,18 @@
-Training Session Show page
-Training Session date
-Training Session start_time
-Training Session end_time
-Training Session location
-<% @training_sessions.each do |training_session| %>
-  <div "training_session>"<%= training_session.date %></div>
-    <div "training_session_date_link"><%= link_to "Show #{training_session.date}", training_session_path(training_session) %></div>
-    <div "edit_trainer_link"><%= link_to "Edit #{training_session.date}", edit_training_session_path(training_session)%></div>
-    <div "new_trainer_link"><%= link_to "New Training Session", new_training_session_path %></div>
-<% end %>
-
-<%= form_tag({controller: "training_session", action: "new" }) do %>
-  <%= hidden_field_tag(:user_id, current_user.id) %>
-  <%= hidden_field_tag(:training_session_id, @training_session.id) %>
-    <div "trainer_link"><%= link_to "Show #{training_session.date}", training_session_path(training_session %></div>
-    <div "edit_trainer_link"><%= link_to "Edit #{training_session.date}", edit_training_session_path(training_session)%></div>
-    <div "new_trainer_link"><%= link_to "New Training Session", new_training_session_path %></div>
-  <% end %>
-  <%= submit_tag "Go on this ride" %>
-<% end %>
-<div "field">Tickets: <%= @attraction.tickets %></div>
-<div "field">Name: <%= @attraction.name %></div>
+<table>
+  <tr><td>Date: </td><td><%= @training_session.date %></td></tr>
+  <tr><td> </td></tr>
+  <tr><td>Start time: </td><td><%= @training_session.start_time %></td></tr>
+  <tr><td> </td></tr>
+  <tr><td>End time: </td><td><%= @training_session.end_time %></td></tr>
+  <tr><td> </td></tr>
+  <tr><td>Location: </td><td><%= @training_session.location %></td></tr>
+</table>
+<table>
+  <tr><td> </td></tr>
+  <tr><td> </td></tr>
+  <tr><td> </td></tr>
+  <tr><td><%= link_to "Edit Training Session", edit_training_session_path(@training_session) %></td></tr>
+  <tr><td> </td></tr>
+  <tr><td><%= link_to "New Training Session", new_training_session_path %></td></tr>
+  <tr><td><%= link_to "Training Sessions Index", training_sessions_path %></td></tr>
+</table>

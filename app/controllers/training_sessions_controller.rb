@@ -1,7 +1,7 @@
 class TrainingSessionsController < ApplicationController
   before_action :set_training_session, only: [:show, :edit, :update]
 
-  def index
+  def index #performs as new instead of INDEX of Training Sessions?
     if params[:user_id]
       @user = User.find_by(id: params[:user_id])
         if @user.nil?
@@ -10,19 +10,49 @@ class TrainingSessionsController < ApplicationController
           @training_sessions = @user.training_sessions
         end
     else
-      @training_sessions = TrainingSession.all
+      @training_sessions = TrainingSession.all #This is ONLY working?
     end
   end
-  
+
   def new
+    #@training_session = TrainingSession.new
+
+    #@training_session = TrainingSession.create(user_id:params[:user_id], training_session_id:params[:training_session_id])
+    #message = @training_session.booked_status
+      #redirect_to user_path(@training_session.user, :message => message )
+
+
+
+    #if params[:user_id]
+      #@user = User.find_by(id: params[:user_id])
+        #if @user.nil?
+          #redirect_to users_path, alert: "User not found"
+        #else
+          #@training_sessions = @user.training_sessions
+        #end
+    #else
+      @training_sessions = TrainingSession.all #THIS IS ONLY GETTING HIT!
+      #@training_session = TrainingSession.new #undefined method `new' for nil:NilClass
+    #end
+
+
     #@other_font = OtherFont.new
     #render :"other_fonts/new"
-    @training_session = TrainingSession.new
+    #@training_session = TrainingSession.new
     #render :"training_sessions/new"
     #@training_session = TrainingSession.find(params[:training_session_id])
   end
 
   def create
+    #Template
+    #@attraction = Attraction.new(attraction_params)
+    #if @attraction.save
+      #redirect_to attraction_path(@attraction)
+    #else
+      #render 'new'
+    #end
+
+
     @training_session = TrainingSession.new(training_session_params)
     #binding.pry
     if @training_session.save
@@ -41,6 +71,13 @@ class TrainingSessionsController < ApplicationController
   #redirect to another route
 
   def update
+    #Template
+      #if @attraction.update(attraction_params)
+        #redirect_to attraction_path(@attraction)
+      #else
+        #render :edit
+      #end
+
     if @training_session.update(training_session_params)
       redirect_to training_session_path(@training_session)
     else
@@ -55,17 +92,20 @@ class TrainingSessionsController < ApplicationController
   end
 
   def edit
-
+    #def set_training_sesison handles this task
+    #@training_session = TrainingSession.find(params[:id])
   end
 
   private
 
   def training_session_params
-    params.require(:training_session).permit(:date, :start_time, :end_time, :location, :booked_status)
+    params.require(:training_session).permit(:date, :start_time, :end_time, :location, :user, :client, :booked_status)
   end
 
   def set_training_session
-  @training_session = TrainingSession.find(params[:id])
- end
+    #Template
+    #@attraction = Attraction.find(params[:id])
+    @training_session = TrainingSession.find(params[:id])
+  end
 
 end

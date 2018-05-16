@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180417225634) do
+ActiveRecord::Schema.define(version: 20180514193416) do
 
   create_table "clients", force: :cascade do |t|
     t.string "name"
@@ -35,8 +35,9 @@ ActiveRecord::Schema.define(version: 20180417225634) do
     t.time     "end_time"
     t.string   "location"
     t.boolean  "booked_status"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.integer  "training_session_id"
   end
 
   create_table "users", force: :cascade do |t|
