@@ -31,7 +31,7 @@ class TrainingSessionsController < ApplicationController
           #@training_sessions = @user.training_sessions
         #end
     #else
-      @training_sessions = TrainingSession.all #THIS IS ONLY GETTING HIT!
+      @training_session = TrainingSession.all #THIS IS ONLY GETTING HIT!
       #@training_session = TrainingSession.new #undefined method `new' for nil:NilClass
     #end
 
