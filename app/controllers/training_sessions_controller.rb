@@ -105,7 +105,7 @@ class TrainingSessionsController < ApplicationController
   def set_training_session
     #Template
     #@attraction = Attraction.find(params[:id])
-    @training_session = TrainingSession.find(params[:id])
+    @training_session = TrainingSession.find_by(params[:id])
   end
 
 end
