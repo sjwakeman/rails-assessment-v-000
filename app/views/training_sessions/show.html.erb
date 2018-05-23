@@ -14,5 +14,9 @@
   <tr><td><%= link_to "Edit Training Session", edit_training_session_path(@training_session) %></td></tr>
   <tr><td> </td></tr>
   <tr><td><%= link_to "New Training Session", new_training_session_path %></td></tr>
+  <tr><td> </td></tr>
   <tr><td><%= link_to "Training Sessions Index", training_sessions_path %></td></tr>
+  <tr><td> </td></tr>
+  <tr><td><%= button_to "Log Out", logout_path, method: :delete %></td></tr>
+  <tr><td> </td></tr>
 </table>

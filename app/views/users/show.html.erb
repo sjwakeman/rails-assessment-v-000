@@ -1,8 +1,15 @@
 <h3><%= @user.name %> Menu</h3>
 <%= @message %>
 
-<p><%= link_to "Training Sessions Index", training_sessions_path %></p>
-<p><%= link_to "Show a Training Session", training_session_path %></p>
-<p><%= link_to "Create a New Training Session", new_training_session_path %></p>
-<p><%= link_to "Edit a Training Session", edit_training_session_path %></p>
-<p><%= button_to "Log Out", logout_path, method: :delete %></p>
+<table>
+  <tr><td> </td></tr>
+  <tr><td> </td></tr>
+  <tr><td><%= link_to "Training Sessions Index", training_sessions_path %></td></tr>
+  <tr><td> </td></tr>
+  <tr><td><%= link_to "New Training Session", new_training_session_path %></td></tr>
+  <tr><td> </td></tr>
+  <tr><td><%= link_to "Edit Training Session", edit_training_session_path %></td></tr>
+  <tr><td> </td></tr>
+  <tr><td><%= button_to "Log Out", logout_path, method: :delete %></td></tr>
+  <tr><td> </td></tr>
+</table>
