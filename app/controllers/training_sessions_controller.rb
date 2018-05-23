@@ -2,18 +2,39 @@ class TrainingSessionsController < ApplicationController
   before_action :set_training_session, only: [:show, :edit, :update]
 
   def index #performs as new instead of INDEX of Training Sessions?
-    if params[:user_id]
-      @user = User.find_by(id: params[:user_id])
-        if @user.nil?
-          redirect_to users_path, alert: "User not found"
-        else
-          @training_sessions = @user.training_sessions
-        end
-    else
-      @training_sessions = TrainingSession.all #This is ONLY working?
-    end
+    @training_sessions = TrainingSession.all
   end
+    #@training_sessions = TrainingSession.where(user_id: current_user.id)
+    #@training_sessions = TrainingSession.all
+    #if params[:training_session_id]
+      #@user = TrainingSession.find_by(id: params[:training_session_id])
+        #if @training_session.nil?
+          #redirect_to training_sessions_path, alert: "Training Session not found"
+        #else
+          #@training_sessions = @training_sessions.training_sessions
+        #end
+    #else
+      #@training_sessions = TrainingSession.all #This is ONLY working?
+    #end
+  #end
 
+  #def index #performs as new instead of INDEX of Training Sessions?
+    #@training_sessions = TrainingSession.all
+    #if params[:user_id]
+      #@user = User.find_by(id: params[:user_id])
+        #if @user.nil?
+          #redirect_to users_path, alert: "User not found"
+        #else
+          #@training_sessions = @user.training_sessions
+        #end
+    #else
+      #@training_sessions = TrainingSession.all #This is ONLY working?
+    #end
+  #end
+  #NoMethodError at /training_sessions
+  #undefined method `to_key' for #<TrainingSession::ActiveRecord_Relation:0x00000003c8e9e0>
+  #Did you mean?  to_query
+                 #to_ary
   def new
     #@training_session = TrainingSession.new
 

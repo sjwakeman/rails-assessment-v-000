@@ -35,9 +35,8 @@ ActiveRecord::Schema.define(version: 20180514193416) do
     t.time     "end_time"
     t.string   "location"
     t.boolean  "booked_status"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
-    t.integer  "training_session_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "users", force: :cascade do |t|
