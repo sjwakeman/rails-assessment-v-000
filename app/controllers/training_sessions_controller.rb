@@ -88,10 +88,13 @@ class TrainingSessionsController < ApplicationController
   end
 
   def destroy
-    training_session.destroy
-    redirect_to '/'
+    @training_session=TrainingSession.find(params[:id])
+    @training_session.destroy
+    redirect_to training_sessions_path
   end
 
+
+   #redirect_to list_path(@item.list)
 
   private
 
