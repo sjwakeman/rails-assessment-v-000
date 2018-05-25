@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_secure_password
-  
+  has_many :training_sessions
+  has_many :clients, through: :training_sessions
+
   def self.find_or_create_by_omniauth(auth_hash)
   #User is login via OAuth
   #User is 100% trusted coming from Facebook

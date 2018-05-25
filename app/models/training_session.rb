@@ -1,6 +1,7 @@
 class TrainingSession < ActiveRecord::Base
-  belongs_to :trainer
+  #belongs_to :trainer
   belongs_to :user
+  has_many :clients
 
   validates :date, :start_time, :end_time, presence: true
 
@@ -9,7 +10,7 @@ class TrainingSession < ActiveRecord::Base
   end
 
   def client_attributes=(client)
-    self.client = Client.find_or_create_by(name: artist.name)
+    self.client = Client.find_or_create_by(name: client.name)
     self.client.update(client)
   end
 
