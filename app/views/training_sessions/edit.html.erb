@@ -6,7 +6,9 @@
     <tr><td> </td></tr>
 
     <tr><td><%= f.label :client %> :
-    <%= f.text_field :clients %>
+    <%= f.text_field :clients %></td>
+    <td><%= f.collection_select(:client_id, Client.all, :id, :client_name ) %></td></tr>
+
     <tr><td> </td></tr>
 
     <tr><td><%= f.label :start_time %> :
