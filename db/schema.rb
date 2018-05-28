@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20180514193416) do
     t.time     "end_time"
     t.string   "location"
     t.boolean  "booked_status"
+    t.integer  "client_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end

@@ -1,9 +1,7 @@
-<h3><%= @user.name %> Menu</h3>
-<%= @message %>
-
 <table>
-  <tr><td> </td></tr>
-  <tr><td> </td></tr>
+  <tr><td><h3><%= @user.name %> - Main Menu</h3></td></tr>
+<!--<%= @message %>-->
+
   <tr><td><%= link_to "Training Sessions Index", training_sessions_path %></td></tr>
   <tr><td> </td></tr>
   <tr><td><%= link_to "New Training Session", new_training_session_path %></td></tr>

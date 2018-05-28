@@ -5,6 +5,7 @@ class CreateTrainingSessions < ActiveRecord::Migration
     t.time :end_time
     t.string :location
     t.boolean :booked_status
+    t.integer :client_id
     t.timestamps null: false
   end
 end

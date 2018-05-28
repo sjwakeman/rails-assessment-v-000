@@ -79,7 +79,7 @@ class TrainingSessionsController < ApplicationController
   def show
     #Duplicates def set_training_sesison method
     #@training_session = TrainingSession.find_by([:id]) #expected: "/training_sessions/2" got: "/training_session"
-    #@training_session = TrainingSession.find(params[:id]) #expected: "/training_sessions/2" got: "/training_session"
+    @training_session = TrainingSession.find(params[:id]) #expected: "/training_sessions/2" got: "/training_session"
   end
 
   def edit

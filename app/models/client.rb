@@ -3,7 +3,7 @@ class Client < ActiveRecord::Base
   #has_secure_password
   #encrypted_password
 
-  belongs_to :training_sessions
+  belongs_to :training_session
   #has_many :trainers, through: :training_sessions
   has_many :users, through: :training_sessions
 
