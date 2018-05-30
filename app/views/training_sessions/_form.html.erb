@@ -4,9 +4,13 @@
     <%= f.text_field :date %></td></tr>
     <tr><td> </td></tr>
 
-    <tr><td><%= f.label :client %> :
-    <%= f.text_field :clients %></td>
-    <td><%= f.collection_select(:client_id, Client.all, :id, :client_name ) %></td></tr>
+
+    <tr><td>Client : <%= f.text_field :client_name, list: "client_name_autocomplete" %>   <!--<%= f.text_field :client_name, list: "clients_autocomplete" %>-->
+      <datalist id="client_name_autocomplete"> <!--<datalist id="clients_autocomplete">-->
+        <% Client.all.each do |client| %>
+          <option value="<%= client.name %>">
+        <% end %>
+      </datalist></td></tr>
     <tr><td> </td></tr>
 
 

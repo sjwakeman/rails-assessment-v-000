@@ -1,7 +1,7 @@
 class TrainingSession < ActiveRecord::Base
   #belongs_to :trainer
   belongs_to :user
-  has_many :clients
+  belongs_to :client
 
   validates :date, :start_time, :end_time, presence: true
 
@@ -14,7 +14,13 @@ class TrainingSession < ActiveRecord::Base
     self.client.update(client)
   end
 
+  def sorted
+    sorted = @training_sessions.order(:date)
+  end
 
+  def client_name
+    self.client.name if self.client
+  end
 
   #def start_time
 #Where 'start' is a attribute of type 'Date' accessible through Training Session's relationship
