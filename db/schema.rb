@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20180514193416) do
 
   create_table "training_sessions", force: :cascade do |t|
     t.date     "date"
+    t.string   "client_name"
     t.time     "start_time"
     t.time     "end_time"
     t.string   "location"

@@ -1,6 +1,7 @@
 class CreateTrainingSessions < ActiveRecord::Migration
   create_table :training_sessions do |t|
     t.date :date
+    t.string :client_name
     t.time :start_time
     t.time :end_time
     t.string :location

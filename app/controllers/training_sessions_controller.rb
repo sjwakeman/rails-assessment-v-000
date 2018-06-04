@@ -99,7 +99,7 @@ class TrainingSessionsController < ApplicationController
   private
 
   def training_session_params
-    params.require(:training_session).permit(:date, :start_time, :end_time, :location, :user, :client, :booked_status)
+    params.require(:training_session).permit(:date, :client_name, :start_time, :end_time, :location, :user, :client, :booked_status)
   end
 
   def set_training_session
