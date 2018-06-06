@@ -1,7 +1,7 @@
 class TrainingSessionsController < ApplicationController
   before_action :set_training_session, only: [:show, :edit, :update]
 
-  def index #performs as new instead of INDEX of Training Sessions?
+  def index
     @training_sessions = TrainingSession.all.sorted
   end
 
@@ -64,13 +64,6 @@ class TrainingSessionsController < ApplicationController
   #redirect to another route
 
   def update
-    #Template
-      #if @attraction.update(attraction_params)
-        #redirect_to attraction_path(@attraction)
-      #else
-        #render :edit
-      #end
-
     if @training_session.update(training_session_params)
       redirect_to training_session_path(@training_session)
     else
@@ -80,7 +73,6 @@ class TrainingSessionsController < ApplicationController
 
   def show
     #Duplicates def set_training_sesison method
-    #@training_session = TrainingSession.find_by([:id]) #expected: "/training_sessions/2" got: "/training_session"
     @training_session = TrainingSession.find(params[:id]) #expected: "/training_sessions/2" got: "/training_session"
   end
 
@@ -95,8 +87,6 @@ class TrainingSessionsController < ApplicationController
     redirect_to training_sessions_path
   end
 
-
-   #redirect_to list_path(@item.list)
 
   private
 
