@@ -2,7 +2,7 @@ class TrainingSessionsController < ApplicationController
   before_action :set_training_session, only: [:show, :edit, :update]
 
   def index #performs as new instead of INDEX of Training Sessions?
-    @training_sessions = TrainingSession.all
+    @training_sessions = TrainingSession.all.sorted
   end
 
   def new
@@ -35,6 +35,9 @@ class TrainingSessionsController < ApplicationController
   end
 
   def create
+    #TrainingSession.create(training_session_params)
+  #end
+
     #Template
     #@attraction = Attraction.new(attraction_params)
     #if @attraction.save
@@ -42,7 +45,6 @@ class TrainingSessionsController < ApplicationController
     #else
       #render 'new'
     #end
-
 
     @training_session = TrainingSession.new(training_session_params)
     #binding.pry
