@@ -5,8 +5,8 @@
     <%= f.text_field :date %></td></tr>
     <tr><td> </td></tr>
 
-    <tr><td>Client : <%= f.text_field :client_name, list: "client_name_autocomplete" %>   <!--<%= f.text_field :client_name, list: "clients_autocomplete" %>-->
-      <datalist id="client_name_autocomplete"> <!--<datalist id="clients_autocomplete">-->
+    <tr><td>Client : <%= f.text_field :client_name, list: "client_name_autocomplete" %>
+      <datalist id="client_name_autocomplete"> 
         <% Client.all.each do |client| %>
           <option value="<%= client.name %>">
         <% end %>
@@ -14,10 +14,10 @@
     <tr><td> </td></tr>
 
     <tr><td><%= f.label :start_time %> :
-    <%= f.text_field :start_time %></td></tr>
+    <%= f.text_field :start_time, value: @training_session.start_time.strftime("%l:%M %p") %></td></tr>
     <tr><td> </td></tr>
     <tr><td><%= f.label :end_time %> :
-    <%= f.text_field :end_time %></td></tr>
+    <%= f.text_field :end_time, value: @training_session.start_time.strftime("%l:%M %p") %></td></tr>
     <tr><td> </td></tr>
 
     <tr><td><%= f.label :location %> :

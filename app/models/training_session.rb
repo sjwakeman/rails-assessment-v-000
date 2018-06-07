@@ -30,7 +30,7 @@ class TrainingSession < ActiveRecord::Base
 
   #def start_time
 #Where 'start' is a attribute of type 'Date' accessible through Training Session's relationship
-    #self.my_related_model.start
+    #self.training_session.start
   #end
 
   #def end_time
