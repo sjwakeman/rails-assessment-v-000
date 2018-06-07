@@ -14,10 +14,14 @@
 ActiveRecord::Schema.define(version: 20180514193416) do
 
   create_table "clients", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.string "provider"
-    t.string "uid"
+    t.string  "name"
+    t.string  "email"
+    t.string  "home_address"
+    t.string  "work_address"
+    t.integer "home_phone"
+    t.integer "work_phone"
+    t.string  "provider"
+    t.string  "uid"
   end
 
   create_table "trainers", force: :cascade do |t|

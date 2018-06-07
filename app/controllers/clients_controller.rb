@@ -1,5 +1,5 @@
 class ClientsController < ApplicationController
-  before_action :authenticate_client, only: [:show]
+  before_action :set_client, only: [:show]
 
   def index
     @clients = Client.all
@@ -12,7 +12,7 @@ class ClientsController < ApplicationController
   def new
     @client = Client.new(client_params)
     if @client.save
-
+    end
   end
 
   def create
@@ -43,6 +43,7 @@ class ClientsController < ApplicationController
   end
 
   def set_client
-    @client = Client.find(params[:id])
+    @client = Client.find_by(params[:id])
   end
+
 end

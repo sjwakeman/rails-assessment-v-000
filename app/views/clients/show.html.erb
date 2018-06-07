@@ -1,3 +1,38 @@
-<% if policy(@client).update? %>
-  <%= link_to "Edit client", edit_client_path(@client) %>
-<% end %>
+<table>
+  <tr><td>Name: <%= @client.name %></td></tr>
+  <tr><td> </td></tr>
+
+  <tr><td>Email : <%= @client.email %></td></tr>
+  <tr><td> </td></tr>
+
+  <tr><td>Home Adress: <%= @client.home_address %></td></tr>
+  <tr><td> </td></tr>
+
+  <tr><td>Home Phone: <%= @client.home_phone %></td></tr>
+  <tr><td> </td></tr>
+
+  <tr><td>Work Address: <%= @client.work_address %></td></tr>
+  <tr><td> </td></tr>
+
+  <tr><td>Work Phone: <%= @client.work_phone %></td></tr>
+  <tr><td> </td></tr>
+
+  <tr><td><%= button_to "Delete Client", client_path, :method=>"delete", :class=>"destroy" %></td></tr>
+  <tr><td> </td></tr>
+</table>
+
+<table>
+  <tr><td> </td></tr>
+  <tr><td> </td></tr>
+  <tr><td> </td></tr>
+  <tr><td><%= link_to "Edit Client", edit_client_path(@client) %></td></tr>
+  <tr><td> </td></tr>
+  <tr><td><%= link_to "New Client", new_client_path %></td></tr>
+  <tr><td> </td></tr>
+  <tr><td><%= link_to "Client Index", clients_path %></td></tr>
+  <tr><td> </td></tr>
+  <tr><td><%= button_to "Log Out", logout_path, method: :delete %></td></tr>
+  <tr><td> </td></tr>
+  <!--<a href='/training_sessions'>Back</a>-->
+  <!--<tr><td> </td></tr>-->
+</table>
