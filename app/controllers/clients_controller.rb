@@ -10,9 +10,10 @@ class ClientsController < ApplicationController
   end
 
   def new
-    @client = Client.new(client_params)
-    if @client.save
-    end
+    @client = Client.all 
+    #@client = Client.new(client_params)
+    #if @client.save
+    #end
   end
 
   def create
@@ -31,15 +32,19 @@ class ClientsController < ApplicationController
   end
 
   def update
-    @client = Client.find(params[:id])
-    @client.update(params.require(:client).permit(:name))
+    if @client.update(client_params)
       redirect_to client_path(@client)
+    else
+      render :edit
+    end
   end
+
+
 
   private
 
   def client_params
-    params.require(:client).permit(:name, :email, :home_phone, :work_phone, :home_address, :work_address)
+    params.permit(:name, :email, :home_phone, :work_phone, :home_address, :work_address)
   end
 
   def set_client

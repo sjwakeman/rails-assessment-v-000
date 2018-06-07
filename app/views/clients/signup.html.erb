@@ -1,0 +1,7 @@
+<h2>Sign Up Page</h2>
+<%= form_tag signup_path do %>
+  <%= render 'form' %>
+  <%= render partial: 'sessions/form',  locals: {user: @user} %>
+<% end %>
+
+<!--<%= render partial: 'sessions/form',  locals: {user: @user} %>-->
