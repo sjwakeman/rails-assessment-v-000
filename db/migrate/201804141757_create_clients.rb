@@ -4,7 +4,7 @@ class CreateClients < ActiveRecord::Migration
     t.string :email
     t.string :home_address
     t.string :work_address
-    t.integer :home_phone
-    t.integer :work_phone
+    t.string :home_phone
+    t.string :work_phone
   end
 end
