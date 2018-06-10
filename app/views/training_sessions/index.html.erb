@@ -2,7 +2,7 @@
   <%= @training_sessions.each do |training_session| %>
 <table>
   <tr><td></td></tr>
-    <div "attraction_link"><%= link_to " #{training_session.date}", training_session_path(training_session) %></div>
+    <tr><td><%= link_to " #{training_session.date}", training_session_path(training_session) %></td></tr>
   <tr><td></td></tr>
     <% end %>
 </table>

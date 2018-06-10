@@ -6,7 +6,7 @@
     <tr><td> </td></tr>
 
     <tr><td>Client : <%= f.text_field :client_name, list: "client_name_autocomplete" %>
-      <datalist id="client_name_autocomplete"> 
+      <datalist id="client_name_autocomplete">
         <% Client.all.each do |client| %>
           <option value="<%= client.name %>">
         <% end %>

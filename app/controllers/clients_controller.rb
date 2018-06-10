@@ -1,8 +1,8 @@
 class ClientsController < ApplicationController
-  before_action :set_client, only: [:show]
+  before_action :set_client, only: [:show, :edit, :update]
 
   def index
-    @clients = Client.all
+    @clients = Client.all.sorted
   end
 
   def show
@@ -10,21 +10,46 @@ class ClientsController < ApplicationController
   end
 
   def new
-    @client = Client.all 
+    @client = Client.new(client_params)
+    @client.save
+      redirect_to client_path(@client)
+  end
+
+    #@client = Client.new(client_params)
+    #if @client.save
+    #@client = Client.all
+    #end
+  #end
+
+    #if @client.save
+  #end
+
     #@client = Client.new(client_params)
     #if @client.save
     #end
-  end
+  #end
+
+  #@client = Client.new(client_params)
+   #if @client.save
+     #session[:client_id] = @client.id
+     # UsersController create logs you in
+       #redirect_to client_path(@client)
+    #else
+     #render 'new'
+    #end
+  #end
+
 
   def create
     @client = Client.new(client_params)
-    if @client.save
-      session[:client_id] = @client.id
-      # UsersController create logs you in
-        redirect_to client_path(@client)
-    else
+      if @client.save
+      redirect_to client_path(@client)
+        # new server request happens, so the previous controller
+        #instance is destroyed and a new controller instance is created.
+      else
       render 'new'
-    end
+      #When you render, you remain in the same controller instance
+      end
   end
 
   def edit
@@ -39,12 +64,16 @@ class ClientsController < ApplicationController
     end
   end
 
-
+  def destroy
+    @client=Client.find(params[:id])
+    @client.destroy
+    redirect_to clients_path
+  end
 
   private
 
   def client_params
-    params.permit(:name, :email, :home_phone, :work_phone, :home_address, :work_address)
+    params.require(:client).permit(:name, :email, :home_phone, :work_phone, :home_address, :work_address)
   end
 
   def set_client

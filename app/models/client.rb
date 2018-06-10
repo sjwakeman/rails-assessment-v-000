@@ -8,14 +8,27 @@ class Client < ActiveRecord::Base
 
   validates :name, presence: true
 
-  def client_name
-    #{}"#{first_name} #{last_name}"
+  def client_name=(name)
+    self.client = Client.find_or_create_by(name: name)
   end
+
+  def client_name
+    self.client.name if self.client
+  end
+
+  def self.sorted
+    Client.order(name: :asc)
+  end
+
+  #def client_attributes=(client)
+    #self.client = Client.find_or_create_by(name: client_name)
+    #self.client.update(client)
+  #end
 
   private
 
   def client_params
-    params.require(:client).permit(:name, :email)
+    params.require(:client).permit(:name, :email, :home_address, :home_phone, :work_address, :work_phone)
   end
 
 end

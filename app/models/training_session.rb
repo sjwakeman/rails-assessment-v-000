@@ -28,23 +28,6 @@ class TrainingSession < ActiveRecord::Base
 
 
 
-  #def start_time
-#Where 'start' is a attribute of type 'Date' accessible through Training Session's relationship
-    #self.training_session.start
-  #end
-
-  #def end_time
-#Where 'end' is a attribute of type 'Date' accessible through Training Session's relationship
-    #self.my_related_model.end
-  #end
-
-  #def training_session(trainer)
-    #:date
-    #:start_time
-    #:end_time
-    #:location
-  #end
-
   #def training_session_schedule
   #end
 
