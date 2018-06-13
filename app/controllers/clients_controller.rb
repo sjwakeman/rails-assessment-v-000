@@ -10,35 +10,8 @@ class ClientsController < ApplicationController
   end
 
   def new
-    @client = Client.new(client_params)
-    @client.save
-      redirect_to client_path(@client)
+    @client = Client.new
   end
-
-    #@client = Client.new(client_params)
-    #if @client.save
-    #@client = Client.all
-    #end
-  #end
-
-    #if @client.save
-  #end
-
-    #@client = Client.new(client_params)
-    #if @client.save
-    #end
-  #end
-
-  #@client = Client.new(client_params)
-   #if @client.save
-     #session[:client_id] = @client.id
-     # UsersController create logs you in
-       #redirect_to client_path(@client)
-    #else
-     #render 'new'
-    #end
-  #end
-
 
   def create
     @client = Client.new(client_params)
@@ -73,11 +46,13 @@ class ClientsController < ApplicationController
   private
 
   def client_params
+    #params.permit(:name, :email, :home_phone, :work_phone, :home_address, :work_address)
     params.require(:client).permit(:name, :email, :home_phone, :work_phone, :home_address, :work_address)
+
   end
 
   def set_client
-    @client = Client.find_by(params[:id])
+    @client = Client.find(params[:id])
   end
 
 end

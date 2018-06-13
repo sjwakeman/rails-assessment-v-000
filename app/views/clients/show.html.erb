@@ -25,11 +25,9 @@
   <tr><td> </td></tr>
   <tr><td> </td></tr>
   <tr><td> </td></tr>
-  <tr><td><%= link_to "Trainer's Main Menu", users_path, :class => current_class?(@user) %></td></tr>
+  <tr><td><%= link_to "Trainer's Main Menu", user_path(current_user), :class => current_class?(@user) %></td></tr>
   <tr><td> </td></tr>
   <tr><td><%= link_to "Edit Client", edit_client_path(@client) %></td></tr>
-  <tr><td> </td></tr>
-  <tr><td><%= link_to "New Client", new_client_path %></td></tr>
   <tr><td> </td></tr>
   <tr><td><%= link_to "Client Index", clients_path %></td></tr>
   <tr><td> </td></tr>
