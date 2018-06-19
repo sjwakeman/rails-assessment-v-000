@@ -11,7 +11,6 @@ class ClientsController < ApplicationController
 
   def new
     @client = Client.new
-    3.times { @client.phones.build }
   end
 
   def create
@@ -41,16 +40,14 @@ class ClientsController < ApplicationController
   def destroy
     @client=Client.find(params[:id])
     @client.destroy
-    flash[:notice] = "You have successfully logged out."
+    #flash [notice:] = "You have successfully deleted the client."
     redirect_to clients_path
   end
 
   private
 
   def client_params
-    #params.permit(:name, :email, :home_phone, :work_phone, :home_address, :work_address)
     params.require(:client).permit(:name, :email, :home_phone, :work_phone, :smart_phone, :home_address, :work_address, phones_attributes: [:id, :phone, :kind])
-
   end
 
   def set_client

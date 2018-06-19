@@ -84,7 +84,8 @@ class TrainingSessionsController < ApplicationController
   def destroy
     @training_session=TrainingSession.find(params[:id])
     @training_session.destroy
-    redirect_to training_sessions_path, alert: "You have successfully cancelled the training session."
+    flash[:notice] = "You have successfully cancelled the training session."
+    redirect_to training_sessions_path
   end
 
 
