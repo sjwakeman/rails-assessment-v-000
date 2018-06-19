@@ -6,5 +6,8 @@ class CreateClients < ActiveRecord::Migration
     t.string :work_address
     t.string :home_phone
     t.string :work_phone
+    t.string :phones
+    t.string :kind
+    t.string :smart_phone
   end
 end

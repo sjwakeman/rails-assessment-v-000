@@ -16,7 +16,7 @@
     <%= f.text_field :home_address %></td></tr>
     <tr><td> </td></tr>
 
-    <tr><td><%= f.label :home_phone %> :
+        <tr><td><%= f.label :home_phone %> :
     <%= f.text_field :home_phone %></td></tr>
     <tr><td> </td></tr>
 
@@ -27,6 +27,28 @@
     <tr><td><%= f.label :work_phone %> :
     <%= f.text_field :work_phone %></td></tr>
     <tr><td> </td></tr>
+
+
+<%= form_for @client do |f| %>
+  Phones:
+  <ul>
+    <%= f.fields_for :phones do |phones_form| %>
+      <li>
+        <%= phones_form.label :kind %>
+        <%= phones_form.text_field :kind %>
+
+        <%= phones_form.label :home_phone %>
+        <%= phones_form.text_field :home_phone %>
+
+        <%= phones_form.label :work_phone %>
+        <%= phones_form.text_field :work_phone %>
+
+        <%= phones_form.label :smart_phone %>
+        <%= phones_form.text_field :smart_phone %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
 
     <tr><td><%= f.submit %></td></tr>
     <tr><td> </td></tr>

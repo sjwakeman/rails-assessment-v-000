@@ -2,6 +2,8 @@ class Client < ActiveRecord::Base
 
   #has_secure_password
   #encrypted_password
+  has_many :phones, inverse_of: :client
+  accepts_nested_attributes_for :phones, reject_if: lambda {|attributes| attributes['kind'].blank?}
 
   has_many :training_sessions
   has_many :users, through: :training_sessions
@@ -28,7 +30,7 @@ class Client < ActiveRecord::Base
   private
 
   def client_params
-    params.require(:client).permit(:name, :email, :home_address, :home_phone, :work_address, :work_phone)
+    params.require(:client).permit(:name, :email, :home_address, :home_phone, :work_address, :work_phone, :smart_phone)
   end
 
 end

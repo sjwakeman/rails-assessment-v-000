@@ -20,6 +20,9 @@ ActiveRecord::Schema.define(version: 20180514193416) do
     t.string "work_address"
     t.string "home_phone"
     t.string "work_phone"
+    t.string "phones"
+    t.string "kind"
+    t.string "smart_phone"
     t.string "provider"
     t.string "uid"
   end

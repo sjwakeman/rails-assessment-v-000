@@ -78,13 +78,13 @@ class TrainingSessionsController < ApplicationController
 
   def edit
     #def set_training_sesison handles this task
-    #@training_session = TrainingSession.find(params[:id])
+    @training_session = TrainingSession.find(params[:id])
   end
 
   def destroy
     @training_session=TrainingSession.find(params[:id])
     @training_session.destroy
-    redirect_to training_sessions_path
+    redirect_to training_sessions_path, alert: "You have successfully cancelled the training session."
   end
 
 
