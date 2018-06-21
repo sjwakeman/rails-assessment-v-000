@@ -6,6 +6,9 @@ class Client < ActiveRecord::Base
   has_many :users, through: :training_sessions
 
   validates :name, presence: true
+  validates :home_phone, length: { is: 10 }
+  validates :work_phone, length: { is: 10 }
+  validates :smart_phone, length: { is: 10 }
 
   def client_name=(name)
     self.client = Client.find_or_create_by(name: name)

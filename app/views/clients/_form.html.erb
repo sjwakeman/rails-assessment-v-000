@@ -1,12 +1,5 @@
 <%= form_for @client do |f| %>
-  <% if @client.errors.any? %>
-    <h2>Errors</h2>
-    <ul>
-      <% @client.full_messages.each do |message| %>
-      <li><%= message %></li>
-    </ul>
-      <% end %>
-  <% end %>
+
   <table>
   <tr><td>Name : <%= f.text_field :name, list: "name_autocomplete" %>
       <datalist id="name_autocomplete">

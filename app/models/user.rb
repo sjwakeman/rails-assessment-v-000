@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   has_many :clients, through: :training_sessions
 
   validates :name, :password, :email, presence: true
-  validates :name, uniqueness: true
+  validates :name, :email, uniqueness: true
 
   def self.find_or_create_by_omniauth(auth_hash)
   #User is login via OAuth
