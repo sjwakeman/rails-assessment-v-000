@@ -3,7 +3,7 @@
   <% if @training_session.errors.any? %>
     <h2>Errors</h2>
     <ul>
-      <% @training_session.full_messages.each do |message| %>
+      <% @training_session.errors.full_messages.each do |message| %>
         <li><%= message %></li>
     </ul>
       <% end %>

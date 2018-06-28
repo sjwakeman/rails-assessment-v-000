@@ -5,7 +5,7 @@ class Client < ActiveRecord::Base
   has_many :training_sessions
   has_many :users, through: :training_sessions
 
-  validates :name, presence: true
+  validates :name, presence: { message: "Client name must be given" }#true
   validates :home_phone, length: { is: 10 }
   validates :work_phone, length: { is: 10 }
   validates :smart_phone, length: { is: 10 }
@@ -26,11 +26,5 @@ class Client < ActiveRecord::Base
     #self.client = Client.find_or_create_by(name: client_name)
     #self.client.update(client)
   #end
-
-  private
-
-  def client_params
-    params.require(:client).permit(:name, :email, :home_address, :home_phone, :work_address, :work_phone, :smart_phone)
-  end
 
 end
