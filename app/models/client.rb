@@ -6,9 +6,9 @@ class Client < ActiveRecord::Base
   has_many :users, through: :training_sessions
 
   validates :name, presence: { message: "Client name must be given" }#true
-  validates :home_phone, length: { is: 10 }
-  validates :work_phone, length: { is: 10 }
-  validates :smart_phone, length: { is: 10 }
+  validates :home_phone, length: { is: 12 }, allow_blank: true
+  validates :work_phone, length: { is: 12 }, allow_blank: true
+  validates :smart_phone, length: { is: 12 }, allow_blank: true
 
   def client_name=(name)
     self.client = Client.find_or_create_by(name: name)
