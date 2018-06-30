@@ -10,7 +10,7 @@
   <% end %>
   <table>
     <tr><td><%= f.label :date %> :
-    <%= f.text_field :date %></td></tr>
+    <%= f.text_field :date, value: @training_session.date.strftime("%B %d, %Y") %></td></tr>
     <tr><td> </td></tr>
 
     <tr><td>Client : <%= f.text_field :client_name, list: "client_name_autocomplete" %>

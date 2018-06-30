@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   has_many :training_sessions
   has_many :clients, through: :training_sessions
 
-  validates :name, :password, :email, presence: { message: "Login information must be given" }#true
+  validates :name, :password, :email, presence: true
   validates :name, :email, uniqueness: true
 
   def self.find_or_create_by_omniauth(auth_hash)

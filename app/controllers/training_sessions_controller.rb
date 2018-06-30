@@ -6,46 +6,10 @@ class TrainingSessionsController < ApplicationController
   end
 
   def new
-    #@training_session = TrainingSession.new
-
-    #@training_session = TrainingSession.create(user_id:params[:user_id], training_session_id:params[:training_session_id])
-    #message = @training_session.booked_status
-      #redirect_to user_path(@training_session.user, :message => message )
-
-
-
-    #if params[:user_id]
-      #@user = User.find_by(id: params[:user_id])
-        #if @user.nil?
-          #redirect_to users_path, alert: "User not found"
-        #else
-          #@training_sessions = @user.training_sessions
-        #end
-    #else
-      @training_session = TrainingSession.all #THIS IS ONLY GETTING HIT!
-      #@training_session = TrainingSession.new #undefined method `new' for nil:NilClass
-    #end
-
-
-    #@other_font = OtherFont.new
-    #render :"other_fonts/new"
-    #@training_session = TrainingSession.new
-    #render :"training_sessions/new"
-    #@training_session = TrainingSession.find(params[:training_session_id])
+      @training_session = TrainingSession.all
   end
 
   def create
-    #TrainingSession.create(training_session_params)
-  #end
-
-    #Template
-    #@attraction = Attraction.new(attraction_params)
-    #if @attraction.save
-      #redirect_to attraction_path(@attraction)
-    #else
-      #render 'new'
-    #end
-
     @training_session = TrainingSession.new(training_session_params)
     #binding.pry
     if @training_session.save
@@ -58,10 +22,10 @@ class TrainingSessionsController < ApplicationController
     end
   end
 
-  #def update
-  #this isn't a route, this is just the method that updates
-  #Object.update(...)
-  #redirect to another route
+  def edit
+    #def set_training_sesison handles this task
+    @training_session = TrainingSession.find(params[:id])
+  end
 
   def update
     if @training_session.update(training_session_params)
@@ -74,11 +38,6 @@ class TrainingSessionsController < ApplicationController
   def show
     #Duplicates def set_training_sesison method
     @training_session = TrainingSession.find(params[:id]) #expected: "/training_sessions/2" got: "/training_session"
-  end
-
-  def edit
-    #def set_training_sesison handles this task
-    @training_session = TrainingSession.find(params[:id])
   end
 
   def destroy
@@ -96,8 +55,6 @@ class TrainingSessionsController < ApplicationController
   end
 
   def set_training_session
-    #Template
-    #@attraction = Attraction.find(params[:id])
     @training_session = TrainingSession.find_by(date: params[:date])
   end
 

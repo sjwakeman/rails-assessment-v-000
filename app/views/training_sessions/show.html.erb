@@ -1,5 +1,5 @@
 <table>
-  <tr><td>Date: <%= @training_session.date %></td></tr>
+  <tr><td>Date: <%= @training_session.date.strftime("%B %d, %Y")%></td></tr>
   <tr><td> </td></tr>
   <tr><td>Client: <%= link_to "#{@training_session.client_name}", client_path %></td></tr>
   <tr><td> </td></tr>
