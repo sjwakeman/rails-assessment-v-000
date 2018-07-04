@@ -6,7 +6,7 @@ class TrainingSessionsController < ApplicationController
   end
 
   def new
-      @training_session = TrainingSession.all
+      @training_session = TrainingSession.new
   end
 
   def create
@@ -55,7 +55,7 @@ class TrainingSessionsController < ApplicationController
   end
 
   def set_training_session
-    @training_session = TrainingSession.find_by(date: params[:date])
+    @training_session = TrainingSession.find_by(id: params[:id])
   end
 
 end

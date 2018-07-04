@@ -21,8 +21,6 @@ ActiveRecord::Schema.define(version: 20180514193416) do
     t.string "home_phone"
     t.string "work_phone"
     t.string "smart_phone"
-    t.string "phones"
-    t.string "kind"
     t.string "provider"
     t.string "uid"
   end

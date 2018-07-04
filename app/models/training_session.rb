@@ -3,8 +3,7 @@ class TrainingSession < ActiveRecord::Base
   belongs_to :user
   belongs_to :client
 
-  validates :date, :client_name, :start_time, :end_time, :location, presence: true
-  validates :start_time, :end_time, uniqueness: true
+  validates :date, :client_name, :start_time, :end_time, :location, presence: { message: "must be given" }#true
 
   def client_name=(name)
     self.client = Client.find_or_create_by(name: name)

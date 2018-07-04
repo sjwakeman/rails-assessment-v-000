@@ -7,7 +7,5 @@ class CreateClients < ActiveRecord::Migration
     t.string :home_phone
     t.string :work_phone
     t.string :smart_phone
-    t.string :phones
-    t.string :kind
   end
 end
