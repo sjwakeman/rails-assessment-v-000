@@ -1,9 +1,14 @@
 <h2>Sign in Page</h2>
 
 <%= form_for @user do |f| %>
-  <p><%= f.label :name %>:</p>
-  <p><%= f.text_field :name %></p>
-  <p><%= f.label :password %>:</p>
-  <p><%= f.text_field :password %></p>
-  <p><%= f.submit 'Log In'%></p>
+<table>
+  <tr><td><%= f.label :name %>:</td></tr>
+  <tr><td><%= f.text_field :name %></td></tr>
+  <tr><td><%= f.label :password %>:</td></tr>
+  <tr><td><%= f.text_field :password %></td></tr>
+  <tr><td><%= f.submit 'Log In'%></p>
+</table>
 <% end %>
+<table>
+  <tr><td> New user? <%= link_to "Sign up now!", new_user_path %> </td></tr>
+</table>
