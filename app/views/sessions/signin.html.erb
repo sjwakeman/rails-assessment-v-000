@@ -1,6 +1,6 @@
 <h2>Sign in Page</h2>
-
-<%= form_for @user do |f| %>
+Sessions Sign In
+<%= form_for @user, url: signin_path(@user) do |f| %> 
 <table>
   <tr><td><%= f.label :name %>:
   <%= f.text_field :name %></td></tr>
@@ -10,9 +10,10 @@
   <%= f.text_field :password %></td></tr>
   <tr><td> </td></tr>
   <tr><td> </td></tr>
-  <tr><td><%= f.submit 'Log In'%></td></tr>
+  <tr><td><%= f.submit 'Log In'%>User/show</td></tr>
 </table>
 <% end %>
 <table>
-  <tr><td> New user? <%= link_to "Sign up now!", new_user_path %> </td></tr>
+  <tr><td> New user? <%= link_to "Sign up now!", new_user_path %> User/new</td></tr>
 </table>
+<!--signup_path-->

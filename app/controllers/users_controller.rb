@@ -4,6 +4,10 @@ class UsersController < ApplicationController
   def home
   end
 
+  def signin
+    @user = User.new
+  end
+
   def new
     @user = User.new
   end
@@ -38,6 +42,12 @@ class UsersController < ApplicationController
       if current_user != @user
         redirect_to root_path
       end
+  end
+
+  def destroy
+    user.destroy
+    flash[:message] = "You have successfully logged out."
+    redirect_to '/'
   end
 
   private

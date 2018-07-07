@@ -1,5 +1,5 @@
 <h1>Welcome to your Trainer's App</h1>
-
+Welcome/home<br>
 <% if session[:user_id] %>
  <h1><%= @user.name %></h1>
  <h2>Email: <%= @user.email %></h2>
@@ -8,5 +8,5 @@
 <% else %>
  <a href='/auth/facebook'>Login with Facebook</a>
 <% end %>
-<li><%= link_to "Sign Up", new_user_path %></li>
-<li><%= link_to "Sign In", signin_path %></li>
+<li><%= link_to "Sign Up", new_user_path %></li> <!--signup_path-->Users/new => Users/_form
+<li><%= link_to "Sign In", signin_path %></li>Sessions/signin
