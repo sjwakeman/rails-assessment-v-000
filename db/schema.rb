@@ -14,15 +14,16 @@
 ActiveRecord::Schema.define(version: 20180514193416) do
 
   create_table "clients", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.string "home_address"
-    t.string "work_address"
-    t.string "home_phone"
-    t.string "work_phone"
-    t.string "smart_phone"
-    t.string "provider"
-    t.string "uid"
+    t.string  "name"
+    t.string  "email"
+    t.string  "home_address"
+    t.string  "work_address"
+    t.string  "home_phone"
+    t.string  "work_phone"
+    t.string  "smart_phone"
+    t.integer "user_id"
+    t.string  "provider"
+    t.string  "uid"
   end
 
   create_table "trainers", force: :cascade do |t|
@@ -36,12 +37,12 @@ ActiveRecord::Schema.define(version: 20180514193416) do
 
   create_table "training_sessions", force: :cascade do |t|
     t.date     "date"
-    t.string   "client_name"
     t.time     "start_time"
     t.time     "end_time"
     t.string   "location"
     t.boolean  "booked_status"
     t.integer  "client_id"
+    t.integer  "user_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end

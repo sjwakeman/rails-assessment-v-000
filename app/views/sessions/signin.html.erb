@@ -1,19 +1,26 @@
-<h2>Sign in Page</h2>
-Sessions Sign In
+<h2>Sign In Page</h2>
+<!--sessions/signin.html.erb-->
+
+<!--<%= form_for @user do |f| %>-->
+  <!--<% flash[:notice] = "You MUST Sign Up before you Sign In to this webpage." %>-->
+<!--<% end %>-->
+
+
 <%= form_for @user, url: signin_path(@user) do |f| %> 
 <table>
-  <tr><td><%= f.label :name %>:
+<tr><td> </td></tr>
+  <tr><td><%= f.label :name %>
   <%= f.text_field :name %></td></tr>
   <tr><td> </td></tr>
   <tr><td> </td></tr>
-  <tr><td><%= f.label :password %>:
+  <tr><td><%= f.label :password %>
   <%= f.text_field :password %></td></tr>
   <tr><td> </td></tr>
   <tr><td> </td></tr>
-  <tr><td><%= f.submit 'Log In'%>User/show</td></tr>
+  <tr><td><%= f.submit 'Log In'%></td></tr><!--User/show-->
 </table>
 <% end %>
 <table>
-  <tr><td> New user? <%= link_to "Sign up now!", new_user_path %> User/new</td></tr>
+  <tr><td> New user? <%= link_to "Sign up now!", new_user_path %></td></tr><!--User/new-->
 </table>
 <!--signup_path-->

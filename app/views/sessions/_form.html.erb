@@ -1,13 +1,13 @@
 <%= form_for @user do |f| %>
 <!--<%= #form_for(:session,url: signin_path) do |f| %>-->
 NOT HIT
-  <% if @user.errors.any? %>
+  <% if @user.errors.any? %> 
     <h2>Errors</h2>
     <ul>
       <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-    </ul>
+        <%= message %>
       <% end %>
+    </ul>
   <% end %>
   <table>
     <tr><td><%= f.label :name %> :

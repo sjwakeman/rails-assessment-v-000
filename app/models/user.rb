@@ -1,9 +1,11 @@
 class User < ActiveRecord::Base
   has_secure_password
+  
+  has_many :created_clients, class_name: "Client" #ALIAS RELATIONSHIP for has_many :clients
   has_many :training_sessions
-  has_many :clients, through: :training_sessions
+  has_many :clients, through: :training_sessions #LAST RELATIONSHIP IS CALLED :clients
 
-  validates :name, :password, :email, presence: true
+  validates :name, :email, presence: true
   validates :name, :email, uniqueness: true
 
   def self.find_or_create_by_omniauth(auth_hash)

@@ -5,9 +5,9 @@
     <ul>
       <% @training_session.errors.full_messages.each do |message| %>
         <li><%= message %></li>
-    </ul>
       <% end %>
-  <% end %>
+        </ul>
+   <% end %>
   <table>
     <tr><td><%= f.label :date %> :
     <%= f.text_field :date, value: @training_session.date.strftime("%B %d, %Y") %></td></tr>

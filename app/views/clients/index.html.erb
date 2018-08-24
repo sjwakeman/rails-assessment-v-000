@@ -1,11 +1,24 @@
 <h2>Clients Index Page</h2>
+<h3>Clients with Training Sessions</h3>
   <%= @clients.each do |client| %>
 <table>
-  <tr><td></td></tr>
-    <%= link_to " #{client.name}", client_path(client) %>
-  <tr><td></td></tr>
-    <% end %>
+  <tr><td> </td></tr>
+  <tr><td><%= link_to " #{client.name}", client_path(client) %></td></tr>
+  <tr><td> </td></tr>
+  <% end %>
+</table>
 
+ <!--#Display the client's that do not have a training session with the user-->
+<h3>Clients without Training Sessions</h3>
+  <%= @created_clients.each do |created_client| %>
+<table>    
+    <tr><td> </td></tr>
+    <tr><td><%= link_to " #{created_client.name}", client_path(created_client) %></td></tr>
+    <tr><td> </td></tr>
+  <% end %>
+</table>
+
+<table>
   <tr><td> </td></tr>
   <tr><td> </td></tr>
   <tr><td> </td></tr>

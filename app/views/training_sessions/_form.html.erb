@@ -1,5 +1,12 @@
 <%= form_for @training_session do |f| %>
-
+  <% if @training_session.errors.any? %>
+    <h2>Errors</h2>
+    <ul>
+      <% @training_session.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+        </ul>
+   <% end %>
   <table>
     <tr><td><%= f.label :date %> :
     <%= f.text_field :date %></td></tr>

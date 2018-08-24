@@ -2,12 +2,13 @@ class Client < ActiveRecord::Base
 
   #has_secure_password
   #encrypted_password
+  belongs_to :user
   has_many :training_sessions
   has_many :users, through: :training_sessions
 
   validates :name, presence: { message: "must be given" }#true
   validates :home_phone, :work_phone, :smart_phone, length: { is: 12, message: "format XXX-XXX-XXXX"}, allow_blank: true
-
+  #validates :name, uniqueness: true
 
   def client_name=(name)
     self.client = Client.find_or_create_by(name: name)

@@ -5,9 +5,9 @@
     <ul>
       <% @client.errors.full_messages.each do |message| %>
         <li><%= message %></li>
-    </ul>
       <% end %>
-  <% end %>
+        </ul>
+   <% end %>
   <table>
     <tr><td>Client : <%= f.text_field :name, list: "name_autocomplete" %>
       <datalist id="client_name_autocomplete">

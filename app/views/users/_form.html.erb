@@ -1,30 +1,30 @@
+<!--Users/new => Users/_form-->
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
 
   <%= form_for @user do |f| %>
-Users/new => Users/_form
   <% if @user.errors.any? %>
     <h2>Errors</h2>
     <ul>
       <% @user.errors.full_messages.each do |message| %>
         <li><%= message %></li>
-    </ul>
       <% end %>
-  <% end %>
+        </ul>
+   <% end %>
   <table>
-    <tr><td><%= f.label :name %> :
+    <tr><td><%= f.label :name %>
     <%= f.text_field :name %></td></tr>
     <tr><td> </td></tr>
     <tr><td> </td></tr>
-    <tr><td><%= f.label :email %> :
+    <tr><td><%= f.label :email %>
     <%= f.text_field :email %></td></tr>
     <tr><td> </td></tr>
     <tr><td> </td></tr>
-    <tr><td><%= f.label :password %> :
+    <tr><td><%= f.label :password %>
     <%= f.text_field :password %></td></tr>
     <tr><td> </td></tr>
     <tr><td> </td></tr>
-    <tr><td><%= f.submit %>Users/show</td></tr>
+    <tr><td><%= f.submit %></td></tr><!--Users/show-->
 </table>
 <% end %>
 </div>

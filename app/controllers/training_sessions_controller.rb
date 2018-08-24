@@ -1,8 +1,14 @@
 class TrainingSessionsController < ApplicationController
-  before_action :set_training_session, only: [:show, :edit, :update]
+  before_action :set_training_session, only: [:create,:show, :edit, :update] 
 
   def index
-    @training_sessions = TrainingSession.all.sorted
+    #Displays training_sessions of current_user
+    @training_sessions = current_user.training_sessions.sorted
+  end
+
+  def show
+    #Duplicates def set_training_sesison method
+    @training_session = TrainingSession.find(params[:id]) #expected: "/training_sessions/2" got: "/training_session"
   end
 
   def new
@@ -11,7 +17,7 @@ class TrainingSessionsController < ApplicationController
 
   def create
     @training_session = TrainingSession.new(training_session_params)
-    #binding.pry
+    @training_session.user = current_user #ties current_user to @training_session.user
     if @training_session.save
       redirect_to training_session_path(@training_session)
         # new server request happens, so the previous controller
@@ -35,18 +41,12 @@ class TrainingSessionsController < ApplicationController
     end
   end
 
-  def show
-    #Duplicates def set_training_sesison method
-    @training_session = TrainingSession.find(params[:id]) #expected: "/training_sessions/2" got: "/training_session"
-  end
-
   def destroy
     @training_session=TrainingSession.find(params[:id])
     @training_session.destroy
     flash[:notice] = "You have successfully cancelled the training session."
     redirect_to training_sessions_path
   end
-
 
   private
 
