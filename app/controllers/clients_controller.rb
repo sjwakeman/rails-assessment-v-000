@@ -21,13 +21,16 @@ class ClientsController < ApplicationController
   def create 
     @client = Client.new(client_params)
     @client.user = current_user #ties current_user to @client.user
+    #@created_client.user = current_user #TIE current_user to @created_client.user?
       if @client.save
       redirect_to client_path(@client)
         # new server request happens, so the previous controller
         #instance is destroyed and a new controller instance is created.
+      #elsif @created_client.save
+      #redirect to client_path(@created_client)
       else
       render 'new'
-      #When you render, you remain in the same controller instance
+        #When you render, you remain in the same controller instance
       end
   end
 

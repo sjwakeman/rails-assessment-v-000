@@ -7,6 +7,10 @@ class TrainingSession < ActiveRecord::Base
 
   def client_name=(name)
     self.client = Client.find_or_create_by(name: name)
+    #@created_client.user = current_user #TIE current_user to @created_client.user?
+      #if @created_client.save
+        #redirect to client_path(@created_client)
+      #end
   end
 
   def client_name
@@ -26,9 +30,18 @@ class TrainingSession < ActiveRecord::Base
     TrainingSession.order(date: :asc, start_time: :asc)
   end
 
-
-
-  #def training_session_schedule
+  #def set_client
+    #ClientController.create
+    #@created_client = Client.new(client_params)
+    #@created_client.user = current_user #TIE current_user to @created_client.user?
+      #if @created_client.save
+      #redirect_to client_path(@created_client)
+        # new server request happens, so the previous controller
+        #instance is destroyed and a new controller instance is created.
+       #else
+      #render 'new'
+        #When you render, you remain in the same controller instance
+      #end
   #end
 
   #def booked_status

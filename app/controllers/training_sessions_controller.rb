@@ -7,7 +7,7 @@ class TrainingSessionsController < ApplicationController
   end
 
   def show
-    #Duplicates def set_training_sesison method
+    #Duplicates def set_training_session method
     @training_session = TrainingSession.find(params[:id]) #expected: "/training_sessions/2" got: "/training_session"
   end
 
@@ -18,18 +18,20 @@ class TrainingSessionsController < ApplicationController
   def create
     @training_session = TrainingSession.new(training_session_params)
     @training_session.user = current_user #ties current_user to @training_session.user
-    if @training_session.save
-      redirect_to training_session_path(@training_session)
-        # new server request happens, so the previous controller
-        #instance is destroyed and a new controller instance is created.
-    else
-      render 'new'
-      #When you render, you remain in the same controller instance
-    end
+    @training_session.client.user_id = current_user.id #ties current_user id to @training_session.client_id
+     if @training_session.save
+        @training_session.client.save #save client to database
+          redirect_to training_session_path(@training_session)
+          # new server request happens, so the previous controller
+          #instance is destroyed and a new controller instance is created.
+      else
+        render 'new'
+        #When you render, you remain in the same controller instance
+      end
   end
 
   def edit
-    #def set_training_sesison handles this task
+    #def set_training_session handles this task
     @training_session = TrainingSession.find(params[:id])
   end
 
