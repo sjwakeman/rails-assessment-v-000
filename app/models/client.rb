@@ -8,6 +8,7 @@ class Client < ActiveRecord::Base
 
   validates :name, presence: { message: "must be given" }#true
   validates :home_phone, :work_phone, :smart_phone, length: { is: 12, message: "format XXX-XXX-XXXX"}, allow_blank: true
+  validates_format_of :email,:with => /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
   #validates :name, uniqueness: true
 
   def client_name=(name)
