@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_many :training_sessions
   has_many :clients, through: :training_sessions #LAST RELATIONSHIP IS CALLED :clients
 
+  validates_format_of :email,:with => /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
   validates :name, :email, presence: true
   validates :name, :email, uniqueness: true
 
