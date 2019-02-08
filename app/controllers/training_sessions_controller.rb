@@ -12,7 +12,8 @@ class TrainingSessionsController < ApplicationController
   end
 
   def new
-      @training_session = TrainingSession.new
+    @user = User.new
+    @training_session = TrainingSession.new
   end
 
   def create
