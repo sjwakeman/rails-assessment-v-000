@@ -17,8 +17,10 @@ class TrainingSessionsController < ApplicationController
   end
 
   def create
-    @training_session = TrainingSession.new(training_session_params)
-    @training_session.user = current_user #ties current_user to @training_session.user
+    
+    @training_session = current_user.training_sessions.build(training_session_params)
+    #@training_session = TrainingSession.new(training_session_params)
+    #@training_session.user = current_user #ties current_user to @training_session.user
     @training_session.client.user_id = current_user.id #ties current_user id to @training_session.client_id
      if @training_session.save
         @training_session.client.save #save client to database

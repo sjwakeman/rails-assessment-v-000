@@ -1,5 +1,6 @@
 <h2>Training Sessions Index Page</h2>
-  <%= @training_sessions.each do |training_session| %>
+  <% @training_sessions.each do |training_session| %>
+    
 <table>
   <tr><td></td></tr>
     <tr><td><%= link_to " #{training_session.date}", training_session_path(training_session) %></td></tr>

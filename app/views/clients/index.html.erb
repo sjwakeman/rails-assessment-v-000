@@ -9,8 +9,9 @@
 </table>
 
  <!--#Display the client's that do not have a training session with the user-->
+ 
 <h3>Clients without Training Sessions</h3>
-  <%= @created_clients.each do |created_client| %>
+  <% @created_clients.each do |created_client| %> 
 <table>    
     <tr><td> </td></tr>
     <tr><td><%= link_to " #{created_client.name}", client_path(created_client) %></td></tr>
