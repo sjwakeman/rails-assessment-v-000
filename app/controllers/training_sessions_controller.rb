@@ -17,7 +17,6 @@ class TrainingSessionsController < ApplicationController
   end
 
   def create
-    
     @training_session = current_user.training_sessions.build(training_session_params)
     #@training_session = TrainingSession.new(training_session_params)
     #@training_session.user = current_user #ties current_user to @training_session.user
