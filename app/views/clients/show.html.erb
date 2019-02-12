@@ -21,8 +21,9 @@
   <tr><td> </td></tr>
 
 
-
- 
+    <li><%= link_to "View Client Training", client_training_sessions_path(@client) %></li>
+    
+   
   <tr><td><%= button_to "Delete Client", client_path, :method=>"delete", :class=>"destroy" %></td></tr>
   <tr><td> </td></tr>
 </table>

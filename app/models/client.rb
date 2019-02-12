@@ -6,8 +6,6 @@ class Client < ActiveRecord::Base
   has_many :training_sessions, dependent: :destroy
   has_many :users, through: :training_sessions
 
-  has_many :training_sessions, through: :client_training_sessions
-
   validates :name, presence: { message: "must be given" }#true
   validates :home_phone, :work_phone, :smart_phone, length: { is: 12, message: "format XXX-XXX-XXXX"}, allow_blank: true
 

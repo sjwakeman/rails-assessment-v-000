@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  resources :clients, only: [:show] do
+    # nested resource for training_sessions
+    resources :training_sessions, only: [:show, :index]
+  end
+  
   get '/auth/facebook/callback' => 'sessions#create'
   get '/auth/:provider/callback', to: 'sessions#create'
 
