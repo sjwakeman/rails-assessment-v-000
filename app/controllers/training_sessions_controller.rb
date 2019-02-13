@@ -3,7 +3,7 @@ class TrainingSessionsController < ApplicationController
 
   def index
     if params[:client_id]
-      @posts = Client.find(params[:client_id]).training_sessions
+      @training_sessions = Client.find(params[:client_id]).training_sessions
     else
     #Displays training_sessions of current_user
     @training_sessions = current_user.training_sessions.sorted

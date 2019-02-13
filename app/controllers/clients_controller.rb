@@ -10,6 +10,21 @@ class ClientsController < ApplicationController
     @created_clients = current_user.created_clients.reject { |w| @clients.include? w}
   end
 
+  def training_sessions_index
+    @client = Cliemt.find(params[:id])
+    @training_sessions = @client.training_sessions
+    render template: 'training_sessions/index'
+  end
+
+  def training_session
+    @client = Client.find(params[:id])
+ 
+    # Note that because ids are unique by table we can go directly to
+    # Training_Session.find — no need for @client.training_sessions.find...
+    @training_session = TrainingSession.find(params[:training_session_id])
+    render template: 'training_sessions/show'
+  end
+
   def show
     @client = Client.find(params[:id])
   end
