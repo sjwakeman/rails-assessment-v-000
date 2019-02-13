@@ -20,9 +20,16 @@
   <tr><td>Smart Phone: <%= @client.smart_phone %></td></tr>
   <tr><td> </td></tr>
 
+  <tr><td> </td></tr>
+  <tr><td><%= link_to client_training_sessions_path(@client) do %>
+    <strong><%= @client.name %></strong> <span>Training Sessions</span>
+  <% end %></td></tr>
+  <tr><td> </td></tr>
 
-    <li><%= link_to "View Client Training", client_training_sessions_path(@client) %></li>
-    
+  <tr><td> </td></tr>
+  <tr><td><%= link_to "View Client's Training Sessions", client_training_sessions_path(@client) %></tr></td>
+  <tr><td> </td></tr>
+  <tr><td> </td></tr>
    
   <tr><td><%= button_to "Delete Client", client_path, :method=>"delete", :class=>"destroy" %></td></tr>
   <tr><td> </td></tr>
@@ -40,6 +47,4 @@
   <tr><td> </td></tr>
   <tr><td><%= button_to "Log Out", logout_path, method: :delete %></td></tr>
   <tr><td> </td></tr>
-  <!--<a href='/training_sessions'>Back</a>-->
-  <!--<tr><td> </td></tr>-->
 </table>

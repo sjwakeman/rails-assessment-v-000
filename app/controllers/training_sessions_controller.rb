@@ -2,8 +2,12 @@ class TrainingSessionsController < ApplicationController
   before_action :set_training_session, only: [:create,:show, :edit, :update] 
 
   def index
+    if params[:client_id]
+      @posts = Client.find(params[:client_id]).training_sessions
+    else
     #Displays training_sessions of current_user
     @training_sessions = current_user.training_sessions.sorted
+    end
   end
 
   def show
