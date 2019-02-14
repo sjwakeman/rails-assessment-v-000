@@ -17,7 +17,8 @@ class TrainingSessionsController < ApplicationController
 
   def new
     @user = User.new
-    @training_session = TrainingSession.new
+    #@training_session = TrainingSession.new
+    @training_session = TrainingSession.new(client_id: params[:client_id])
   end
 
   def create
@@ -59,7 +60,7 @@ class TrainingSessionsController < ApplicationController
   private
 
   def training_session_params
-    params.require(:training_session).permit(:date, :client_name, :start_time, :end_time, :location, :user, :client, :booked_status)
+    params.require(:training_session).permit(:date, :client_name, :start_time, :end_time, :location, :user, :client, :booked_status, :client_id)
   end
 
   def set_training_session
