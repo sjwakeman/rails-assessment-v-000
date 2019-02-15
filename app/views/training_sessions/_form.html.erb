@@ -6,9 +6,10 @@
         <li><%= message %></li>
       <% end %>
         </ul>
+      <%= client_id_field(@training_session) %>
+      
    <% end %>
   <table>
-  <%= f.hidden_field :client_id %>
     <tr><td><%= f.label :date %> :
     <%= f.text_field :date %></td></tr>
     <tr><td> </td></tr>

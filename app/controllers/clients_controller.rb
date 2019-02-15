@@ -18,8 +18,7 @@ class ClientsController < ApplicationController
 
   def training_session
     @client = Client.find(params[:id])
- 
-    # Note that because ids are unique by table we can go directly to
+     # Note that because ids are unique by table we can go directly to
     # Training_Session.find — no need for @client.training_sessions.find...
     @training_session = TrainingSession.find(params[:training_session_id])
     render template: 'training_sessions/show'
@@ -30,7 +29,10 @@ class ClientsController < ApplicationController
   end
 
   def new
-    @client = Client.new
+    #@client = Client.new
+    @user = User.new
+    #@training_session = TrainingSession.new
+    @client = Client.new(client_id: params[:client_id])
   end
 
   def create 
