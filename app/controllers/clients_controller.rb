@@ -29,10 +29,10 @@ class ClientsController < ApplicationController
   end
 
   def new
-    #@client = Client.new
+    @client = Client.new
     @user = User.new
     #@training_session = TrainingSession.new
-    @client = Client.new(client_id: params[:client_id])
+    #@client = Client.new(client_id: params[:client_id])
   end
 
   def create 
