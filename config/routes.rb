@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :clients do
-    # nested resource for training_sessions
-  resources :training_sessions, only: [:show, :index, :new] 
+  resources :clients do #defines all routes for :clients
+  # nested resource for training_sessions
+  resources :training_sessions, only: [:show, :index, :new]
   end
   
   get '/auth/facebook/callback' => 'sessions#create'
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
   resources :trainers
-  #resources :clients
+  #resources :clients (dont need) 
   resources :training_sessions
   resources :users
 
