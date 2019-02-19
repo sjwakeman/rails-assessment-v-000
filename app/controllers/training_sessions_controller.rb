@@ -16,10 +16,18 @@ class TrainingSessionsController < ApplicationController
   end
 
   def new
-    @user = User.new
-    #@training_session = TrainingSession.new
-    @training_session = TrainingSession.new(client_id: params[:client_id])
+    if params[:client_id] && !Client.exists?(params[:client_id])
+      redirect_to clients_path, alert: "Client not found."
+    else
+      @training_session = TrainingSession.new(client_id: params[:client_id])
+    end
   end
+
+  #def new
+    #@user = User.new
+    #@training_session = TrainingSession.new
+    #@training_session = TrainingSession.new(client_id: params[:client_id])
+  #end
 
   def create
     @training_session = current_user.training_sessions.build(training_session_params)
