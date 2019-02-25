@@ -5,9 +5,9 @@ Rails.application.routes.draw do
   resources :training_sessions, only: [:show, :index, :new]
   end
   
-  get '/auth/facebook/callback' => 'sessions#create'
-  get '/auth/:provider/callback', to: 'sessions#create'
-
+  #get '/auth/facebook/callback' => 'sessions#create' specific to facebook only
+  get '/auth/:provider/callback', to: 'sessions#create' #Valid for any login provider
+ 
   get '/signup', to: 'sessions#signup'
   get '/signin', to: 'sessions#signin', as: 'signin'
   get '/training_session/:id/destroy', to: 'training_sessions#destroy'
