@@ -10,11 +10,11 @@
       
    <% end %>
   <table>
-    <tr><td>(Day-Month-Year) <%= f.label :date  %> :
+    <tr><td>(Day-Month-Year) <strong><%= f.label :date  %> :</strong>
     <%= f.text_field :date %></td></tr>
     <tr><td> </td></tr>
 
-  <tr><td>Client : <%= f.text_field :client_name, list: "client_name_autocomplete" %>
+  <tr><td><strong>Client :</strong> <%= f.text_field :client_name, list: "client_name_autocomplete" %>
       <datalist id="client_name_autocomplete">
         <% Client.all.each do |client| %>
           <option value="<%= client.name %>">
@@ -22,15 +22,15 @@
       </datalist></td></tr>
     <tr><td> </td></tr>
 
-    <tr><td><%= f.label :start_time %> :
+    <tr><td><strong><%= f.label :start_time %> :</strong>
     <%= f.text_field :start_time %></td></tr>
     <tr><td> </td></tr>
 
-    <tr><td><%= f.label :end_time %> :
+    <tr><td><strong><%= f.label :end_time %> :</strong>
     <%= f.text_field :end_time %></td></tr>
     <tr><td> </td></tr>
 
-    <tr><td>Location : <%= f.text_field :location, list: "location_autocomplete" %>
+    <tr><td><strong>Location :</strong> <%= f.text_field :location, list: "location_autocomplete" %>
         <datalist id="location_autocomplete">
           <% TrainingSession.all.each do |training_session| %>
             <option value="<%= training_session.location %>">
@@ -38,7 +38,7 @@
         </datalist></td></tr>
       <tr><td> </td></tr>
 
-    <tr><td><%= f.label :booked_status %> :
+    <tr><td><strong><%= f.label :booked_status %> :</strong>
     <%= f.text_field :booked_status %></td></tr>
     <tr><td> </td></tr>
 
