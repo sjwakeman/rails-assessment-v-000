@@ -3,7 +3,7 @@ class TrainingSessionsController < ApplicationController
 
   def index
     if params[:client_id]
-      @training_sessions = Client.find(params[:client_id]).training_sessions
+      @training_sessions = Client.find(params[:client_id]).training_sessions.sorted
     else
     #Displays training_sessions of current_user
     @training_sessions = current_user.training_sessions.sorted
@@ -22,12 +22,6 @@ class TrainingSessionsController < ApplicationController
       @training_session = TrainingSession.new(client_id: params[:client_id])
     end
   end
-
-  #def new
-    #@user = User.new
-    #@training_session = TrainingSession.new
-    #@training_session = TrainingSession.new(client_id: params[:client_id])
-  #end
 
   def create
     @training_session = current_user.training_sessions.build(training_session_params)
