@@ -9,11 +9,11 @@
 <%= form_for @user, url: signin_path(@user) do |f| %> 
 <table>
 <tr><td> </td></tr>
-  <tr><td><%= f.label :name %>
+  <tr><td><strong><%= f.label :name %> :</strong>
   <%= f.text_field :name %></td></tr>
   <tr><td> </td></tr>
   <tr><td> </td></tr>
-  <tr><td><%= f.label :password %>
+  <tr><td><strong><%= f.label :password %> :</strong>
   <%= f.text_field :password %></td></tr>
   <tr><td> </td></tr>
   <tr><td> </td></tr>
