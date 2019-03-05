@@ -9,11 +9,11 @@
         </ul>
    <% end %>
   <table>
-    <tr><td><%= f.label :date %> :
+    <tr><td><strong><%= f.label :date %> :</strong>
     <%= f.text_field :date, value: @training_session.date.strftime("%B %d, %Y") %></td></tr>
     <tr><td> </td></tr>
 
-    <tr><td>Client : <%= f.text_field :client_name, list: "client_name_autocomplete" %>
+    <tr><td><strong>Client :</strong> <%= f.text_field :client_name, list: "client_name_autocomplete" %>
       <datalist id="client_name_autocomplete">
         <% Client.all.each do |client| %>
           <option value="<%= client.name %>">
@@ -21,18 +21,19 @@
       </datalist></td></tr>
     <tr><td> </td></tr>
 
-    <tr><td><%= f.label :start_time %> :
+    <tr><td><strong><%= f.label :start_time %> :</strong>
     <%= f.text_field :start_time, value: @training_session.start_time.strftime("%l:%M %p") %></td></tr>
     <tr><td> </td></tr>
-    <tr><td><%= f.label :end_time %> :
+
+    <tr><td><strong><%= f.label :end_time %> :</strong>
     <%= f.text_field :end_time, value: @training_session.start_time.strftime("%l:%M %p") %></td></tr>
     <tr><td> </td></tr>
 
-    <tr><td><%= f.label :location %> :
+    <tr><td><strong><%= f.label :location %> :</strong>
     <%= f.text_field :location %></td></tr>
     <tr><td> </td></tr>
 
-    <tr><td><%= f.label :booked_status %> :
+    <tr><td><strong><%= f.label :booked_status %> :</strong>
     <%= f.text_field :booked_status %></td></tr>
     <tr><td> </td></tr>
 
