@@ -1,17 +1,22 @@
 <table>
-  <tr><td>Date: <%= @training_session.date.strftime("%B %d, %Y")%></td></tr>
+  <tr><td><strong>Date:</strong> <%= @training_session.date.strftime("%B %d, %Y")%></td></tr>
   <tr><td> </td></tr>
-  <tr><td>Client: <%= link_to "#{@training_session.client_name}", client_path(@training_session.client.id) %></td></tr>
+
+  <tr><td><strong>Client:</strong> <%= link_to "#{@training_session.client_name}", client_path(@training_session.client.id) %></td></tr>
   <tr><td> </td></tr>
-  <tr><td>Start time: <%= @training_session.start_time.strftime("%l:%M %p") %></td></tr>
+  <tr><td><strong>Start time:</strong> <%= @training_session.start_time.strftime("%l:%M %p") %></td></tr>
   <tr><td> </td></tr>
-  <tr><td>End time: <%= @training_session.end_time.strftime("%l:%M %p") %></td></tr>
+
+  <tr><td><strong>End time:</strong> <%= @training_session.end_time.strftime("%l:%M %p") %></td></tr>
   <tr><td> </td></tr>
-  <tr><td>Location: <%= @training_session.location %></td></tr>
+
+  <tr><td><strong>Location:</strong> <%= @training_session.location %></td></tr>
   <tr><td> </td></tr>
+
   <tr><td><%= button_to "Cancel Training Session", training_session_path, :method=>"delete", :class=>"destroy" %></td></tr>
   <tr><td> </td></tr>
 </table>
+
 <table>
   <tr><td> </td></tr>
   <tr><td> </td></tr>

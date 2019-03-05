@@ -3,9 +3,11 @@ class TrainingSessionsController < ApplicationController
 
   def index
     if params[:client_id]
+      #Sorts individual Client Training Sessions Index page
       @training_sessions = Client.find(params[:client_id]).training_sessions.sorted
     else
     #Displays training_sessions of current_user
+    #Sorts all clients Training Sessions Index page
     @training_sessions = current_user.training_sessions.sorted
     end
   end
