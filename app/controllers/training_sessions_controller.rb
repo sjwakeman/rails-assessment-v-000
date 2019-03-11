@@ -61,6 +61,16 @@ class TrainingSessionsController < ApplicationController
     redirect_to training_sessions_path
   end
 
+  def morning
+    @training_sessions = current_user.training_sessions.morning
+    render :index
+  end
+
+  def evening
+    @training_sessions = current_user.training_sessions.evening
+    render :index
+  end
+
   private
 
   def training_session_params

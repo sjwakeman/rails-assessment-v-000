@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
   end
 
   def signup
+    @user = User.new
   end
 
   def create
@@ -17,13 +18,16 @@ class SessionsController < ApplicationController
     if auth
       @user = User.find_or_create_by_omniauth(auth)
       session[:user_id] = @user.id
-     redirect_to user_path(@user.id)
+      redirect_to user_path(@user.id)
     else
     #Email and Password login
-     @user = User.find_by(email: params[:@user][:email])
-      if user && user.authenticate(params[:password])
-        session[:user_id] = @user.id
-        redirect_to user_path(@user.id)
+      @user = User.find_by(name: params[:user][:name])    
+      #binding.pry
+      if @user && @user.authenticate(params[:user][:password])
+       session[:user_id] = @user.id
+       redirect_to user_path(@user.id)
+      else
+        redirect_to signin_path
       end
     end
   end

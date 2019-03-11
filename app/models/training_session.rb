@@ -27,25 +27,18 @@ class TrainingSession < ActiveRecord::Base
   end
 
   def self.sorted
-    TrainingSession.order(date: :asc, start_time: :asc)
+    self.order(date: :asc, start_time: :asc)
   end
 
-  #def set_client
-    #ClientController.create
-    #@created_client = Client.new(client_params)
-    #@created_client.user = current_user #TIE current_user to @created_client.user?
-      #if @created_client.save
-      #redirect_to client_path(@created_client)
-        # new server request happens, so the previous controller
-        #instance is destroyed and a new controller instance is created.
-       #else
-      #render 'new'
-        #When you render, you remain in the same controller instance
-      #end
-  #end
+  def self.morning
+    self.where("start_time<?","2000-01-01 12:00:00")
+  end
 
+  def self.evening
+    self.where("start_time>?","2000-01-01 11:59:59")
+  end
+  
   #def booked_status
   #end
-
 
 end

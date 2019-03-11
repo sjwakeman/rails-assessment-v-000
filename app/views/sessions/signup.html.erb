@@ -1,6 +1,5 @@
 <h2>Sign Up Page</h2>
-<%= form_for @user do |f| %>
-  <!--sessions/signup.html.erb-->
+
     <% if @user.errors.any? %>
       <h2>Errors</h2>
       <ul>
@@ -10,8 +9,6 @@
       </ul>
         <% end %>
     <% end %>
-    
-<%= form_tag signup_path do %>
+
   <%= render 'form' %>
-  <%= render partial: 'sessions/form',  locals: {user: @user} %>
-<% end %>
+

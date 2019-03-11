@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   #get '/auth/facebook/callback' => 'sessions#create' specific to facebook only
   get '/auth/:provider/callback', to: 'sessions#create' #Valid for any login provider
  
+  get '/training_sessions/am', to: 'training_sessions#morning'
+  get '/training_sessions/pm', to: 'training_sessions#evening'
+  
   get '/signup', to: 'sessions#signup'
   get '/signin', to: 'sessions#signin', as: 'signin'
   get '/training_session/:id/destroy', to: 'training_sessions#destroy'
