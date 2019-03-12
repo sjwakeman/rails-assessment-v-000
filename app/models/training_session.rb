@@ -5,6 +5,12 @@ class TrainingSession < ActiveRecord::Base
 
   validates :date, :client_name, :start_time, :end_time, :location, presence: { message: "must be given" }#true
 
+  scope :training_session, -> { where(morning: true) }
+  scope :training_session, -> { where(evening: true) }
+  #scope :training_session, -> { where(morning: false && evening: false}
+ 
+
+
   def client_name=(name)
     self.client = Client.find_or_create_by(name: name)
     #@created_client.user = current_user #TIE current_user to @created_client.user?
