@@ -13,10 +13,12 @@
 <tr><td> </td></tr>
 <tr><td> </td></tr>
 <tr><td>
-<%= form_tag('/training_sessions', method: :get) do %>
-  Training Sessions Time of Day: <%= select_tag "time", "<option>AM</option><option>PM</option>".html_safe %>
-  <div><%= submit_tag 'Filter' %></div>
-<% end %>
+<% if !params[:client_id] %>
+  <%= form_tag('/training_sessions', method: :get) do %>
+    Training Sessions Time of Day: <%= select_tag "time", "<option>AM</option><option>PM</option>".html_safe %>
+    <div><%= submit_tag 'Filter' %></div>
+  <% end %>
+<% end %> 
 </td></tr>
 <tr><td> </td></tr>
 <tr><td> </td></tr>

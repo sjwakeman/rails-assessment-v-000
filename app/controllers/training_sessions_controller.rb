@@ -4,11 +4,17 @@ class TrainingSessionsController < ApplicationController
   def index
     if params[:client_id]
       #Sorts individual Client Training Sessions Index page
-      @training_sessions = Client.find(params[:client_id]).training_sessions.sorted
+        @training_sessions = Client.find(params[:client_id]).training_sessions.sorted
     else
     #Displays training_sessions of current_user
     #Sorts all clients Training Sessions Index page
-    @training_sessions = current_user.training_sessions.sorted
+      if params[:time] == "AM"
+        @training_sessions = current_user.training_sessions.sorted.morning
+      elsif params[:time] == "PM" 
+        @training_sessions = current_user.training_sessions.sorted.evening
+      else
+        @training_sessions = current_user.training_sessions.sorted
+      end
     end
   end
 
@@ -79,6 +85,18 @@ class TrainingSessionsController < ApplicationController
 
   def set_training_session
     @training_session = TrainingSession.find_by(id: params[:id])
+  end
+
+  def morning?
+    #params[:commit] == "Filter"
+    #https://localhost:3000/training_sessions/am
+    
+  end
+
+  def evening?
+    #params[:commit] == "Filter"
+    #https://localhost:3000/training_sessions/pm
+
   end
 
 end

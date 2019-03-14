@@ -1,6 +1,6 @@
 <h2>Clients Index Page</h2>
 <h3>Clients with Training Sessions</h3>
-  <% @clients.each do |client| %>
+  <% @clients.uniq.each do |client| %>
 <table>
   <tr><td> </td></tr>
   <tr><td><%= link_to " #{client.name}", client_path(client) %></td></tr>
