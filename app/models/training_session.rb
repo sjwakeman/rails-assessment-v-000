@@ -42,10 +42,7 @@ class TrainingSession < ActiveRecord::Base
 
   def self.most_recent
     time_to_check = Time.now
-    self.where("start_time >= ?", time_to_check ).limit(1).order(1)
-    #TrainingSession.where("start_time >= ?", time_to_check )
-    #@posts = Post.includes(:comments).order("created_at DESC").limit(5)
-    #@training_sessions = TrainingSession.includes(:start_time).order("created_at DESC").limit(1)
+    self.where("date>=?", time_to_check ).limit(1).order(1)
   end
   
   #def booked_status
