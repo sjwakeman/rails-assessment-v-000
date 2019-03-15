@@ -12,6 +12,8 @@ class TrainingSessionsController < ApplicationController
         @training_sessions = current_user.training_sessions.sorted.morning
       elsif params[:time] == "PM" 
         @training_sessions = current_user.training_sessions.sorted.evening
+      #elsif params[:time] == "Most Recent"
+        #@training_session = TrainingSession.includes(:start_time).order("created_at DESC").limit(1)
       else
         @training_sessions = current_user.training_sessions.sorted
       end
@@ -77,6 +79,11 @@ class TrainingSessionsController < ApplicationController
     render :index
   end
 
+  def most_recent
+    @training_sessions = current_user.training_sessions.most_recent
+    render :index
+  end
+
   private
 
   def training_session_params
@@ -85,18 +92,6 @@ class TrainingSessionsController < ApplicationController
 
   def set_training_session
     @training_session = TrainingSession.find_by(id: params[:id])
-  end
-
-  def morning?
-    #params[:commit] == "Filter"
-    #https://localhost:3000/training_sessions/am
-    
-  end
-
-  def evening?
-    #params[:commit] == "Filter"
-    #https://localhost:3000/training_sessions/pm
-
   end
 
 end
