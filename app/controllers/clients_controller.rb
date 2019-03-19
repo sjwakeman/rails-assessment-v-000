@@ -2,16 +2,29 @@ class ClientsController < ApplicationController
   before_action :set_client, only: [:create, :show, :edit, :update]
 
   def index
+     
+    #Display search of client name
+    if params[:search]
+    #=Client.where(["name LIKE ?","%#{params[:search]}%"])
+    @clients=current_user.clients.search(params[:search])
+    @created_clients = current_user.created_clients.search(params[:search]).reject { |w| current_user.clients.include? w}
+ 
+    else
+      @clients = current_user.clients.sorted
+       @created_clients = current_user.created_clients.reject { |w| current_user.clients.include? w}
+ 
+    end
+   
   #Displays clients of current_user
-    @clients = current_user.clients.sorted
-  #Displays created_clients of current_user
-    #@created_clients = current_user.created_clients.sorted
+    #@clients = current_user.clients.sorted
+    
   #Displays created_clients of current_user while reject @clients duplicates.
-    @created_clients = current_user.created_clients.reject { |w| @clients.include? w}
+    #@created_clients = current_user.created_clients.reject { |w| @clients.include? w}
+    
   end
 
   def training_sessions_index
-    @client = Cliemt.find(params[:id])
+    @client = Client.find(params[:id])
     @training_sessions = @client.training_sessions
     render template: 'training_sessions/index'
   end
@@ -31,20 +44,16 @@ class ClientsController < ApplicationController
   def new
     @client = Client.new
     @user = User.new
-    #@training_session = TrainingSession.new
-    #@client = Client.new(client_id: params[:client_id])
   end
 
   def create 
     @client = Client.new(client_params)
     @client.user = current_user #ties current_user to @client.user
-    #@created_client.user = current_user #TIE current_user to @created_client.user?
       if @client.save
       redirect_to client_path(@client)
         # new server request happens, so the previous controller
         #instance is destroyed and a new controller instance is created.
-      #elsif @created_client.save
-      #redirect to client_path(@created_client)
+        #redirect to client_path(@created_client)
       else
       render 'new'
         #When you render, you remain in the same controller instance
@@ -73,7 +82,7 @@ class ClientsController < ApplicationController
   private
 
   def client_params
-    params.require(:client).permit(:name, :email, :home_phone, :work_phone, :home_address, :work_address, :smart_phone)
+    params.require(:client).permit(:name, :email, :home_phone, :work_phone, :home_address, :work_address, :smart_phone, :search)
   end
 
   def set_client

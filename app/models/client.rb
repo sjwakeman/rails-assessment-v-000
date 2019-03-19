@@ -21,9 +21,7 @@ class Client < ActiveRecord::Base
     Client.order(name: :asc)
   end
 
-  #def client_attributes=(client)
-    #self.client = Client.find_or_create_by(name: client_name)
-    #self.client.update(client)
-  #end
-
+  def self.search(search)
+      where(["name LIKE ?","%#{search}%"])#undefined method `each' for nil:NilClass line32
+  end
 end

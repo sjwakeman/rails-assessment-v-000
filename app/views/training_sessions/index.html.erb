@@ -37,7 +37,17 @@
 </table>
 
 
-
+<table>
+<tr><td> </td></tr>
+<tr><td> </td></tr>
+<tr><td>
+<% if params[:client_id] %>
+<tr><td><%= button_to " #{@client.name} Most Recent Training Session", client_most_recent_path(@client), method: :get %></td></tr>
+<% end %> 
+</td></tr>
+<tr><td> </td></tr>
+<tr><td> </td></tr>
+</table>
 
 <table>
   <tr><td> </td></tr>
