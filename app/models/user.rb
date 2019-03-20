@@ -19,4 +19,8 @@ class User < ActiveRecord::Base
       #Seen this User before, log User in
     end
   end
+
+  def user_name
+    self.user.name if self.user
+  end
 end

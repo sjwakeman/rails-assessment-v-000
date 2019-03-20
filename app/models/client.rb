@@ -21,7 +21,8 @@ class Client < ActiveRecord::Base
     Client.order(name: :asc)
   end
 
+  #Search function by Client Name
   def self.search(search)
-      where(["name LIKE ?","%#{search}%"])#undefined method `each' for nil:NilClass line32
+      where(["name LIKE ?","%#{search}%"])
   end
 end

@@ -8,18 +8,7 @@
   <% end %>
 </table>
 
-<table>
-  <tr><td> </td></tr>
-  <tr><td><h3>Search by Client Name:</h3></td></tr>
-    <tr><td><%= form_tag(clients_path, method: :get) do %> 
-    <%= text_field_tag(:search, params[:search]) %> 
-    <%= submit_tag ("Search") %> 
-  <% end %></td></tr>
-</table>
-
- 
  <!--#Display the client's that do not have a training session with the user-->
- 
 <h3>Clients without Training Sessions</h3>
   <% @created_clients.each do |created_client| %> 
 <table>    
@@ -27,6 +16,15 @@
     <tr><td><%= link_to " #{created_client.name}", client_path(created_client) %></td></tr>
     <tr><td> </td></tr>
   <% end %>
+</table>
+
+<table>
+  <tr><td> </td></tr>
+  <tr><td><h3>Search by Client Name:</h3></td></tr>
+    <tr><td><%= form_tag(clients_path, method: :get) do %> 
+    <%= text_field_tag(:search, params[:search]) %> 
+    <%= submit_tag ("Search") %> 
+  <% end %></td></tr>
 </table>
 
 <table>

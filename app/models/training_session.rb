@@ -5,14 +5,8 @@ class TrainingSession < ActiveRecord::Base
 
   validates :date, :client_name, :start_time, :end_time, :location, presence: { message: "must be given" }#true
 
-  #scope :most_recent, -> (limit) { order("created_at desc").limit(limit) }
-
   def client_name=(name)
     self.client = Client.find_or_create_by(name: name)
-    #@created_client.user = current_user #TIE current_user to @created_client.user?
-      #if @created_client.save
-        #redirect to client_path(@created_client)
-      #end
   end
 
   def client_name
@@ -45,7 +39,4 @@ class TrainingSession < ActiveRecord::Base
     self.where("date>=?", time_to_check ).limit(1)#order(1)
   end
   
-  #def booked_status
-  #end
-
 end

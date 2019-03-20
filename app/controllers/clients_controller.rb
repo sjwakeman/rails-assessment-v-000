@@ -2,25 +2,19 @@ class ClientsController < ApplicationController
   before_action :set_client, only: [:create, :show, :edit, :update]
 
   def index
-     
-    #Display search of client name
+  #Display search of client name
     if params[:search]
-    #=Client.where(["name LIKE ?","%#{params[:search]}%"])
+    #Displays Client Name search with Training Session
     @clients=current_user.clients.search(params[:search])
+    #Displays Client Name search without Training Session
     @created_clients = current_user.created_clients.search(params[:search]).reject { |w| current_user.clients.include? w}
- 
     else
+      ##Displays all clients of current_user when Client name search not found
       @clients = current_user.clients.sorted
-       @created_clients = current_user.created_clients.reject { |w| current_user.clients.include? w}
- 
+      #Displays all created_clients of current_user while reject @clients duplicates
+      #when Client name search not found
+      @created_clients = current_user.created_clients.reject { |w| current_user.clients.include? w}
     end
-   
-  #Displays clients of current_user
-    #@clients = current_user.clients.sorted
-    
-  #Displays created_clients of current_user while reject @clients duplicates.
-    #@created_clients = current_user.created_clients.reject { |w| @clients.include? w}
-    
   end
 
   def training_sessions_index
@@ -31,7 +25,7 @@ class ClientsController < ApplicationController
 
   def training_session
     @client = Client.find(params[:id])
-     # Note that because ids are unique by table we can go directly to
+    # Note that because ids are unique by table we can go directly to
     # Training_Session.find — no need for @client.training_sessions.find...
     @training_session = TrainingSession.find(params[:training_session_id])
     render template: 'training_sessions/show'

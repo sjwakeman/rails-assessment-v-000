@@ -1,1 +1,17 @@
 <%= link_to 'Training Sessions', training_sessions_path %>
+
+<h2>Users Index Page</h2>
+<table>
+<tr><td><h4>User Names</h4></td><td><h4>Number of Training Sessions</h4></td></tr>
+  <% @users.uniq.each do |user| %>
+
+
+  <tr><td colspan="2"> </td></tr>
+
+  <tr><td><%= link_to " #{user.name}", user_path(user)%></td>
+      <td align="center"><%= user.training_sessions.count %></td></tr>
+  <tr><td colspan="2"> </td></tr>
+  <% end %>
+  
+</table>
+

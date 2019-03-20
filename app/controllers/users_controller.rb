@@ -30,6 +30,15 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    #@users=User.find(@user.id)
+    #@clubs = Club.find(insert_a_number_that_is_the_id_of_the_club_you_want)
+    #if params[:user_id]
+      #Sorts individual User Training Sessions Index page
+        #@users = User.find(user_id).training_sessions.count
+
+        #=@training_sessions = @user.training_sessions.size
+
+    #end
   end
 
   def show

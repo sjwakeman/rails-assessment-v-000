@@ -13,8 +13,6 @@ class TrainingSessionsController < ApplicationController
         @training_sessions = current_user.training_sessions.sorted.morning
       elsif params[:time] == "PM" 
         @training_sessions = current_user.training_sessions.sorted.evening
-      #elsif params[:time] == "Most Recent"
-        #@training_session = TrainingSession.includes(:start_time).order("created_at DESC").limit(1)
       else
         @training_sessions = current_user.training_sessions.sorted
       end
@@ -36,11 +34,11 @@ class TrainingSessionsController < ApplicationController
 
   def create
     @training_session = current_user.training_sessions.build(training_session_params)
-    #@training_session = TrainingSession.new(training_session_params)
-    #@training_session.user = current_user #ties current_user to @training_session.user
-    @training_session.client.user_id = current_user.id #ties current_user id to @training_session.client_id
-     if @training_session.save
-        @training_session.client.save #save client to database
+    #ties current_user id to @training_session.client_id
+    @training_session.client.user_id = current_user.id 
+        if @training_session.save
+        #save client to database
+        @training_session.client.save 
           redirect_to training_session_path(@training_session)
           # new server request happens, so the previous controller
           #instance is destroyed and a new controller instance is created.
