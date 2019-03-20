@@ -1,7 +1,5 @@
 class Client < ActiveRecord::Base
 
-  #has_secure_password
-  #encrypted_password
   belongs_to :user
   has_many :training_sessions, dependent: :destroy
   has_many :users, through: :training_sessions
