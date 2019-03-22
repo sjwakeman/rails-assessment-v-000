@@ -49,7 +49,7 @@ class ClientsController < ApplicationController
         #instance is destroyed and a new controller instance is created.
         #redirect to client_path(@created_client)
       else
-      render 'new'
+      render :new
         #When you render, you remain in the same controller instance
       end
   end

@@ -43,7 +43,7 @@ class TrainingSessionsController < ApplicationController
           # new server request happens, so the previous controller
           #instance is destroyed and a new controller instance is created.
       else
-        render 'new'
+        render :new
         #When you render, you remain in the same controller instance
       end
   end

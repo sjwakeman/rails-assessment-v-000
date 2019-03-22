@@ -23,7 +23,7 @@ class UsersController < ApplicationController
         #instance is destroyed and a new controller instance is created.
     else
       flash[:notice] = "Invalid name/password combination."
-      render 'new'
+      render :new
       #When you render, you remain in the same controller instance
     end
   end
