@@ -23,4 +23,9 @@ class User < ActiveRecord::Base
   def user_name
     self.user.name if self.user
   end
+
+  #Search function by Client Name
+  def self.search(search)
+    where(["name LIKE ?","%#{search}%"])
+  end
 end

@@ -1,0 +1,25 @@
+<div>
+<table>
+<h3>Users</h3>
+    <% if @users.empty? %>
+     <tr><td> No matches found.</td></tr>
+    
+    <% else %>
+        <% @users.uniq.each do |user| %> 
+        <tr><td> <%= " #{user.name}" %> </td></tr>
+         <% end %>
+    <% end %>
+</table>
+</div>
+
+
+<table>
+  <tr><td> </td></tr>
+  <tr><td><h3>Search by User Name:</h3></td></tr>
+    <tr><td><%= form_tag(users_user_search_submit_path, method: :get) do %> 
+    <%= text_field_tag(:search, params[:search]) %> 
+    <%= submit_tag ("Search") %> 
+    <% end %></td></tr>
+</table>
+
+

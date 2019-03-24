@@ -14,7 +14,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    #binding.pry
     if @user.save
       session[:user_id] = @user.id
       # UsersController create logs you in
@@ -48,6 +47,18 @@ class UsersController < ApplicationController
     user.destroy
     flash[:message] = "You have successfully logged out."
     redirect_to '/'
+  end
+
+  def search
+    @users=User.all
+  end
+
+
+  def search_submit
+      #Displays User Name search 
+      @users=User.all
+      @users=@users.search(params[:search])
+        render :search
   end
 
   private

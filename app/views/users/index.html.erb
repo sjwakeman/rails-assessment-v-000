@@ -4,14 +4,10 @@
 <table>
 <tr><td><h4>User Names</h4></td><td><h4>Number of Training Sessions</h4></td></tr>
   <% @users.uniq.each do |user| %>
-
-
   <tr><td colspan="2"> </td></tr>
-
   <tr><td><%= "#{user.name}"%></td>
       <td align="center"><%= user.training_sessions.count %></td></tr>
   <tr><td colspan="2"> </td></tr>
   <% end %>
-  
 </table>
 

@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   get '/training_sessions/am', to: 'training_sessions#morning'
   get '/training_sessions/pm', to: 'training_sessions#evening'
   
+  get '/users/user_search', to: 'users#search'
+  get '/users/user_search_submit', to: 'users#search_submit'
+  
+
   get 'clients/:client_id/training_sessions/most_recent', to: 'training_sessions#client_most_recent', as: 'client_most_recent'
 
   get '/signup', to: 'sessions#signup'
